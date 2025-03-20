@@ -1,10 +1,13 @@
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class ShelveItme : DragAndDrop
 {
+    [SerializeField] UnityEvent End;
     public GameObject Item;
     public GameObject DraggedItem;
     public GameObject Parrent;
@@ -26,6 +29,7 @@ public class ShelveItme : DragAndDrop
         drag.enabled = true;
         drag.canvasGroup.blocksRaycasts = false;
         eventData.pointerDrag = DraggedItem;
+        End.Invoke();
         //DraggedItem.transform.position = Input.mousePosition/ DraggedItem.canvas.scaleFactor;
     }
 

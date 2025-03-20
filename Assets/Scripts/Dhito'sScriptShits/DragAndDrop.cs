@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,IEndDragHandler,IDragHandler
 {
-    public CanvasGroup canvasGroup;
-    public RectTransform rectTransform;
     public Transform ParentAfterDrag;
-    public Transform ParentBeforeDrag;
+    [HideInInspector] public RectTransform rectTransform;
+    [HideInInspector] public CanvasGroup canvasGroup;
     [SerializeField] public Canvas canvas;
-    public Transform Root;
+    protected Transform Root;
+    Transform ParentBeforeDrag;
     public void Set(Canvas canvas)
     {
         this.canvas = canvas;
@@ -19,6 +19,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
         Root = canvas.transform;
+        ParentBeforeDrag = this.transform.parent.transform;
     }
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
@@ -56,6 +57,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         {
             Destroy(gameObject);
         }
+        
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
