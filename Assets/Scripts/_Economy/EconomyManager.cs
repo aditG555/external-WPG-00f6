@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 [System.Serializable]
 public class ItemData
 {
-    public string itemName; // Nama GameObject item (A, B, C, D, E)
-    public int sellValue;   // Nilai jual item
+    public string itemName;
+    public int sellValue;
 }
 
 public class EconomyManager : MonoBehaviour
@@ -13,7 +14,7 @@ public class EconomyManager : MonoBehaviour
     public static EconomyManager Instance;
 
     [Header("Item Database")]
-    [SerializeField] private ItemData[] itemDatabase; // Isi data item di Inspector
+    [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
     [SerializeField] private int currentMoney;
@@ -29,7 +30,6 @@ public class EconomyManager : MonoBehaviour
         UpdateMoneyUI();
     }
 
-    // Cari nilai jual item berdasarkan nama GameObject
     public int GetSellValue(string itemName)
     {
         foreach (ItemData item in itemDatabase)
@@ -39,7 +39,7 @@ public class EconomyManager : MonoBehaviour
                 return item.sellValue;
             }
         }
-        Debug.LogError("Item tidak ditemukan di database: " + itemName);
+        Debug.LogError("Item not found: " + itemName);
         return 0;
     }
 
@@ -49,8 +49,57 @@ public class EconomyManager : MonoBehaviour
         UpdateMoneyUI();
     }
 
+    public void RemoveMoney(int amount)
+    {
+        currentMoney = Mathf.Max(currentMoney - amount, 0);
+        UpdateMoneyUI();
+    }
+
+    public int GetJamuBasePrice(GameObject jamuItem)
+    {
+        Jamu jamu = jamuItem.GetComponent<Jamu>();
+        foreach (ItemData item in itemDatabase)
+        {
+            if (item.itemName == jamu.jamuType)
+            {
+                return item.sellValue;
+            }
+        }
+        return 0;
+    }
+
+    public void ProcessJamuTransaction(NPCTrait[] traits, bool isCorrect, int baseValue)
+    {
+        int finalAmount = baseValue;
+        
+        foreach(NPCTrait trait in traits)
+        {
+            if(isCorrect)
+            {
+                if(trait == NPCTrait.Generous) finalAmount += 5;
+                if(trait == NPCTrait.Forgetful) finalAmount += 2;
+            }
+            else
+            {
+                if(trait == NPCTrait.Perfectionist) finalAmount *= 2;
+                if(trait == NPCTrait.Grumpy) finalAmount += 10;
+            }
+        }
+
+        Debug.Log($"Transaksi: {(isCorrect ? "+" : "-")}{finalAmount}");
+
+        if(isCorrect) AddMoney(finalAmount);
+        else RemoveMoney(finalAmount);
+    }
+
     private void UpdateMoneyUI()
     {
         moneyText.text = currentMoney.ToString();
     }
+
+    public void ProcessRefund(int amount)
+{
+    currentMoney = Mathf.Max(currentMoney - amount, 0);
+    UpdateMoneyUI();
+}
 }
