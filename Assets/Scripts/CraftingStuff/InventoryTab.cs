@@ -18,7 +18,7 @@ public class InventoryTab : MonoBehaviour
             Toogle();
         }
     }
-    void Toogle()
+    public void Toogle()
     {
         if (TabsOpen)
         {

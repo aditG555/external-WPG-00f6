@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class UlekanInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] Slider slider;
-    [SerializeField] UnityEvent Berak;
     public Canvas canvas;
     public GameObject collisionCheck;
+    public float progress;
+    public UlekanOutput UlOut;
+    public GameObject ItemOutput;
+    [SerializeField] Slider slider;
+    [SerializeField] UnityEvent Berak;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
-    public float progress;
     Vector2 startposition;
     float MaxProgressValue = 5000f;
     private void Awake()
@@ -38,8 +40,11 @@ public class UlekanInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragH
         if (progress > MaxProgressValue)
         {
             OnEndDrag(eventData);
+            UlOut.SetGameObject(ItemOutput);
             Berak.Invoke();
+            return;
         }
+        slider.value = Mathf.Clamp01(progress/MaxProgressValue);
         Debug.Log(progress);
     }
 
@@ -56,11 +61,13 @@ public class UlekanInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragH
     // Update is called once per frame
     void Update()
     {
-        slider.value = progress/MaxProgressValue;
+
     }
-    public void Show()
+    public void ResetSliderVal()
     {
-        canvas.gameObject.SetActive(true);
+        progress = 0;
+        slider.value = 0f;
+        Debug.Log("Reset Slider");
     }
 
 }
