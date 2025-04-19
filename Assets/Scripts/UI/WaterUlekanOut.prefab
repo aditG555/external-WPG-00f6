@@ -25,6 +25,13 @@ PrefabInstance:
       value: 0.81960785
       objectReference: {fileID: 0}
     - target: {fileID: 6642973845177771287, guid: 0d746c6225575c14ea46fc3d8ef8a3dc, type: 3}
+<<<<<<< HEAD
+=======
+      propertyPath: itemType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642973845177771287, guid: 0d746c6225575c14ea46fc3d8ef8a3dc, type: 3}
+>>>>>>> Nugils
       propertyPath: MaxItemStack
       value: 1
       objectReference: {fileID: 0}
