@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -319,6 +319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIDocument: {fileID: 0}
   SceneSwipeFactor: 900
+  Slots: []
+  InputAllowed: 1
 --- !u!4 &163398319
 Transform:
   m_ObjectHideFlags: 0
@@ -385,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0902bcac6b62bd94ab4a6dfcfa98e21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Child: []
+  canbeDrop: 1
 --- !u!114 &192301992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0902bcac6b62bd94ab4a6dfcfa98e21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Child: []
+  canbeDrop: 1
 --- !u!114 &297968545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336731469279566119, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1
+      value: -0.9999981
       objectReference: {fileID: 0}
     - target: {fileID: 7336731469279566119, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -824,14 +830,14 @@ RectTransform:
   m_GameObject: {fileID: 699025649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49324, y: 0.49324, z: 0.49324}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 32720132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -363.73, y: 201.43}
+  m_AnchoredPosition: {x: -334, y: 182.77002}
   m_SizeDelta: {x: 218.5438, y: 43.0461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699025651
@@ -1073,6 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0902bcac6b62bd94ab4a6dfcfa98e21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Child: []
+  canbeDrop: 1
 --- !u!114 &936415633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1563,6 +1571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0902bcac6b62bd94ab4a6dfcfa98e21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Child: []
+  canbeDrop: 1
 --- !u!114 &1278114927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,8 +1650,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -216}
-  m_SizeDelta: {x: 529.2155, y: 100}
+  m_AnchoredPosition: {x: 0, y: -154}
+  m_SizeDelta: {x: 391.9221, y: 74.0572}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303016560
 MonoBehaviour:
@@ -1767,7 +1777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336731469279566119, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1
+      value: -0.9999962
       objectReference: {fileID: 0}
     - target: {fileID: 7336731469279566119, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2082,14 +2092,14 @@ RectTransform:
   m_GameObject: {fileID: 1716275724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49324, y: 0.49324, z: 0.49324}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 32720132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -363.73, y: 244.48}
+  m_AnchoredPosition: {x: -334, y: 204}
   m_SizeDelta: {x: 218.5438, y: 43.0461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1814215762 stripped
@@ -2148,7 +2158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 12.3}
+  m_AnchoredPosition: {x: 2, y: 128}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1936954718
@@ -2202,6 +2212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0902bcac6b62bd94ab4a6dfcfa98e21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Child: []
+  canbeDrop: 1
 --- !u!114 &1936954721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2565,8 +2577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0013885, y: -103.3271}
-  m_SizeDelta: {x: 529.21, y: 87.3457}
+  m_AnchoredPosition: {x: -0.0013885, y: -73}
+  m_SizeDelta: {x: 386.86, y: 63.8509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2135023340 stripped
 RectTransform:
