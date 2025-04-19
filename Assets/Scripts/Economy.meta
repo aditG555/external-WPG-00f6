@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+guid: 7d6c17bfde51ec34b96ee2791f3d0c05
+=======
 guid: 61dbc6d530652f44390935f917f47703
+>>>>>>> Nugils
+=======
+guid: 0406243086151e649b836816db80235e
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
