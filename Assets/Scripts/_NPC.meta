@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: 132445a0c2415644aa02adc4d4721249
+<<<<<<<< Updated upstream:Assets/Scripts/_NPC.meta
+guid: 021081f231d63e84eb3544f99fed0bbd
 folderAsset: yes
 DefaultImporter:
+========
+guid: 40ea69a43d3e4494b8c288dc6fc2c70b
+NativeFormatImporter:
+>>>>>>>> Stashed changes:Assets/Scripts/Animations/ESC.controller.meta
   externalObjects: {}
+  mainObjectFileID: 9100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

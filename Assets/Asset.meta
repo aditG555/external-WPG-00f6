@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: 17e756bec833f414f9a32053e9f6fe2f
+<<<<<<<< Updated upstream:Assets/Asset.meta
+guid: 58c3fa643a839384184375c729e2626c
 folderAsset: yes
 DefaultImporter:
+========
+guid: 37a67f1500a76c54e953e4ce60761d24
+NativeFormatImporter:
+>>>>>>>> Stashed changes:Assets/Scripts/Animations/EscOFF.anim.meta
   externalObjects: {}
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

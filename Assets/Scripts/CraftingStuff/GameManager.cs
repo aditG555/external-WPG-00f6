@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float SceneSwipeFactor = 900;
     public static GameManager _instance;
     public List<ItemSlot> Slots;
+    public bool InputAllowed = true;
     public bool AddItemInHand(GameObject item)
     {
         foreach (ItemSlot slot in Slots)
