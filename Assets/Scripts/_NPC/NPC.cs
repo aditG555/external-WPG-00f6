@@ -63,6 +63,7 @@ public class NPC : MonoBehaviour
     if (gameObject != null)
     {
         Destroy(gameObject);
+        Debug.Log("GameObject Destroyed after being served.");
         NPCManager.Instance.SpawnNewNPC();
         Debug.Log("NPC spawned new NPC after being served.");   
     }
