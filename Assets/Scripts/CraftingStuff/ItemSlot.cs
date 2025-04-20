@@ -53,8 +53,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 {
                     //Child = eventData.pointerDrag;
                     //eventData.pointerDrag.GetComponent<DragAndDrop>().SetParrent(transform);
-                    eventData.pointerDrag.GetComponent<DragAndDrop>().ParentAfterDrag = transform;
-                    SetChild(eventData.pointerDrag);
+                    //eventData.pointerDrag.GetComponent<DragAndDrop>().ParentAfterDrag = transform;
+                    eventData.pointerDrag.GetComponent<DragAndDrop>().InsertInto(this.gameObject);
+                    //SetChild(eventData.pointerDrag);
                 }
 
             }

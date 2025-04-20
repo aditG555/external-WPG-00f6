@@ -96,11 +96,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             Destroy(gameObject);
         }
     }
-    public void InsertToSlot(Transform parent)
+    //public void InsertToSlot(Transform parent)
+    //{
+    //    ParentAfterDrag = parent;
+    //    transform.SetParent(ParentAfterDrag);
+    //    transform.position = ParentAfterDrag.position;
+    //} Unused
+    public void InsertInto(GameObject parrentS)
     {
-        ParentAfterDrag = parent;
-        transform.SetParent(ParentAfterDrag);
-        transform.position = ParentAfterDrag.position;
+        ParentAfterDrag = parrentS.transform;
+
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
