@@ -22,12 +22,12 @@ public class ESCOption : MonoBehaviour
     {
         if (TabsOpen)
         {
-            animator.Play("ESCON");
+            animator.Play("EscOFF");
             //TabsOpen = false;
         }
         else
         {
-            animator.Play("ESCOFF");
+            animator.Play("EscON");
             //TabsOpen=true;
         }
     }
