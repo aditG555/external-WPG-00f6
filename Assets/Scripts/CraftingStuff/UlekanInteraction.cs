@@ -45,7 +45,7 @@ public class UlekanInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragH
             return;
         }
         slider.value = Mathf.Clamp01(progress/MaxProgressValue);
-        Debug.Log(progress);
+        //Debug.Log(progress);
     }
 
     public void OnEndDrag(PointerEventData eventData)

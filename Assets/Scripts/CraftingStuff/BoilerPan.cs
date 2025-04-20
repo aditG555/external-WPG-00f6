@@ -89,7 +89,7 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                     }
                     if (!GameManager._instance.isFilled())
                     {
-                        eventData.pointerDrag.GetComponent<DragAndDrop>().ShelveFrom.DencrementCount();
+                        //eventData.pointerDrag.GetComponent<DragAndDrop>().ShelveFrom.DencrementCount();
                         Destroy(eventData.pointerDrag);
                         Activate.Invoke();
                     }

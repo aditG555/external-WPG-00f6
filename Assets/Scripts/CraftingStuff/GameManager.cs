@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour
             if (!slot.IsFilled())
             {
                 Debug.Log(slot.IsFilled());
-                item.GetComponent<DragAndDrop>().ParentAfterDrag = slot.transform;
-                slot.SetChild(item);
+                //item.GetComponent<DragAndDrop>().ParentAfterDrag = slot.transform;
+                item.GetComponent<DragAndDrop>().InsertInto(slot.gameObject);
+                //slot.SetChild(item);
                 item.GetComponent<DragAndDrop>().transform.position = item.GetComponent<DragAndDrop>().ParentAfterDrag.position;
                 return true;
             }

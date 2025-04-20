@@ -45,8 +45,9 @@ public class Ulekan : MonoBehaviour, IPointerDownHandler, IDropHandler
                 if (GameManager._instance.isFilled())
                 {
                     Debug.Log("Hand is Not Full!");
-                    eventData.pointerDrag.GetComponent<DragAndDrop>().ShelveFrom?.DencrementCount();
-                    Destroy(eventData.pointerDrag);
+                    //eventData.pointerDrag.GetComponent<DragAndDrop>().ShelveFrom?.DencrementCount();
+                    //Destroy(eventData.pointerDrag);
+                    item.InsertInto(this.gameObject, true);
                     Activate.Invoke();
                 }
                 else
