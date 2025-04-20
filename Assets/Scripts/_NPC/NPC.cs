@@ -30,6 +30,7 @@ public class NPC : MonoBehaviour
     {
         bool isCorrect = CheckJamu(jamuItem);
         string resultText = isCorrect ? npcData.correctDialog : npcData.wrongDialog;
+        Debug.Log("Handle Drop Called");
         
         // Tampilkan dialog hasil
         DialogManager.Instance.ShowResultDialog(
@@ -62,7 +63,7 @@ public class NPC : MonoBehaviour
     // Pastikan NPC belum dihancurkan oleh proses lain (misalnya hari berakhir)
     if (gameObject != null)
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
         Debug.Log("GameObject Destroyed after being served.");
         NPCManager.Instance.SpawnNewNPC();
         Debug.Log("NPC spawned new NPC after being served.");   

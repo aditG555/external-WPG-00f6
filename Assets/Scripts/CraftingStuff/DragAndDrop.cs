@@ -41,7 +41,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             ParentAfterDrag = null;
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.5f;
-            canvas = GameObject.Find("InventoryTab").GetComponent<Canvas>();
+            canvas = GameObject.Find("InventoryTab")?.GetComponent<Canvas>();
             transform.SetParent(canvas.transform);
             transform.SetAsLastSibling();
         }
