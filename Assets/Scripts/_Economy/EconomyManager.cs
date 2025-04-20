@@ -58,6 +58,7 @@ public class EconomyManager : MonoBehaviour
     public int GetJamuBasePrice(GameObject jamuItem)
     {
         Jamu jamu = jamuItem.GetComponent<Jamu>();
+        if(jamu == null) { return 0; }
         foreach (ItemData item in itemDatabase)
         {
             if (item.itemName == jamu.jamuType)
