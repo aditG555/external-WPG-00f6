@@ -149,5 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28400d4b37b960644bbefa7009ecf093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jamuType: TehAdas
-  preparationQuality: 0
+  type: 5
