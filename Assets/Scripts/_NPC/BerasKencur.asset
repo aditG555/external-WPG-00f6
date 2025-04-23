@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92b805861800fa4992f523d823d795d, type: 3}
   m_Name: BerasKencur
   m_EditorClassIdentifier: 
-  possibleProblems:
-  - Tolong berikan aku jamu beras kencur satu
-  desiredJamuTypes: 01000000
-  traits: 02000000
-  correctDialog: Jamu beras kencur selalu membuat perutku terasa nyaman. Terimakasih.
-  wrongDialog: "ini bukan jamu pesananku\u2026"
-  refundDialog: apalan
+  possibleProblems: []
+  desiredJamuTypes: []
+  traits: 
+  correctDialog: 
+  wrongDialog: 
+  refundDialog: 

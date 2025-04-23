@@ -5,7 +5,7 @@ public class NPC : MonoBehaviour
 {
     public NPCData npcData;
     public string currentProblem;
-    public Jamu.jamuType desiredJamu;
+    public string desiredJamu;
     public bool wasServedCorrectly = false; // Menandakan apakah jamu yang diberikan benar
 
     // Dipanggil oleh NPCManager saat spawn
@@ -53,7 +53,7 @@ public class NPC : MonoBehaviour
     bool CheckJamu(GameObject jamuItem)
     {
         Jamu jamu = jamuItem.GetComponent<Jamu>();
-        return jamu != null && jamu.type == desiredJamu;
+        return jamu != null && jamu.jamuType == desiredJamu;
     }
 
     IEnumerator DestroyAndRespawn()

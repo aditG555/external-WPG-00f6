@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9939a3128e581534ebb67637b69758b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcData: {fileID: 0}
+  npcData: {fileID: 11400000, guid: 7215b8e73f012b44ea091da21ac3dd4e, type: 2}
   currentProblem: 
   desiredJamu: 
   wasServedCorrectly: 0
