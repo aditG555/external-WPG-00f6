@@ -5,8 +5,11 @@ public class NPCReceiver : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject jamuItem = eventData.pointerDrag;
-        GetComponent<NPC>().HandleItemDrop(jamuItem);
-        Destroy(jamuItem); // Hancurkan item setelah digunakan
+        if(eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
+        {
+            GameObject jamuItem = eventData.pointerDrag;
+            GetComponent<NPC>().HandleItemDrop(jamuItem);
+            Destroy(jamuItem); // Hancurkan item setelah digunakan
+        }
     }
 }
