@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCData : ScriptableObject
 {
     public string[] possibleProblems; // Masalah yang bisa dialami NPC
-    public string[] desiredJamuTypes; // Jenis jamu yang diinginkan
+    public Jamu.jamuType[] desiredJamuTypes; // Jenis jamu yang diinginkan
     public NPCTrait[] traits; // Sifat-sifat NPC
     public string correctDialog;
     public string wrongDialog;
