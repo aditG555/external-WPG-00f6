@@ -5,7 +5,7 @@ using System;
 [System.Serializable]
 public class ItemData
 {
-    public string itemName;
+    public Jamu.jamuType itemName; // Ganti dari Jamu[] ke enum
     public int sellValue;
 }
 
@@ -30,7 +30,7 @@ public class EconomyManager : MonoBehaviour
         UpdateMoneyUI();
     }
 
-    public int GetSellValue(string itemName)
+    public int GetSellValue(Jamu.jamuType itemName)
     {
         foreach (ItemData item in itemDatabase)
         {
@@ -61,7 +61,10 @@ public class EconomyManager : MonoBehaviour
         if(jamu == null) { return 0; }
         foreach (ItemData item in itemDatabase)
         {
-            if (item.itemName == jamu.jamuType)
+            if (item.itemName == jamu.type)
+            {
+                return item.sellValue;
+            }
             {
                 return item.sellValue;
             }
