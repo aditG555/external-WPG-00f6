@@ -7,6 +7,13 @@ using static UnityEditor.Progress;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public UIDocument UIDocument;
+    [Space(10)]
+    [Header("Inventory Slots")]
+    [SerializeField] public ShelveItme[] Shelve;
+    //[SerializeField] public ShelveItme jaheShelve;
+    //[SerializeField] public ShelveItme bijiAdasShelve;
+    //[SerializeField] public ShelveItme GulaPasirShelve;
+    [Space(10)]
     public float SceneSwipeFactor = 900;
     public static GameManager _instance;
     public List<ItemSlot> Slots;
@@ -21,6 +28,7 @@ public class GameManager : MonoBehaviour
                 //item.GetComponent<DragAndDrop>().ParentAfterDrag = slot.transform;
                 item.GetComponent<DragAndDrop>().InsertInto(slot.gameObject);
                 //slot.SetChild(item);
+                item.GetComponent<DragAndDrop>().ParentBeforeDrag = slot.transform;
                 item.GetComponent<DragAndDrop>().transform.position = item.GetComponent<DragAndDrop>().ParentAfterDrag.position;
                 return true;
             }
@@ -69,6 +77,14 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
+    }
+    public void SaveData()
+    {
+        SaveSystem.SaveData(this);
+    }
+    public void LoadData()
+    {
+        SaveData data = SaveSystem.LoadData();
     }
     void Start()
     {

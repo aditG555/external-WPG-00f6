@@ -1,23 +1,48 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
     public NPCData npcData;
     public string currentProblem;
     public Jamu.jamuType desiredJamu;
+    public Sprite Body;
+    public Sprite Head;
+    public NPCLooksData SpritesData;
     public bool wasServedCorrectly = false; // Menandakan apakah jamu yang diberikan benar
 
     // Dipanggil oleh NPCManager saat spawn
     public void InitializeNPC() 
     {
         GenerateRandomData();
+        Body = SpritesData.Body;
+        Head = SpritesData.Head;
         
         // Tampilkan dialog masalah selama 5 detik
         DialogManager.Instance.ShowProblemDialog(
             currentProblem, 
             5f
         );
+    }
+    public void InitializeNPC(NPCData Data,NPCLooksData Looks)
+    {
+        GenerateRandomData();
+        Body = Looks.Body;
+        Head = Looks.Head;
+
+        // Tampilkan dialog masalah selama 5 detik
+        DialogManager.Instance.ShowProblemDialog(
+            currentProblem,
+            5f
+        );
+    }
+    private void Start()
+    {
+        GetComponent<Image>().sprite = Body;
+        gameObject.transform.Find("Head").GetComponent<Image>().sprite = Head;
+        gameObject.transform.Find("Body").GetComponent<Image>().sprite = Body;
+        GetComponentInChildren<Image>().sprite = Head;
     }
 
     void GenerateRandomData()

@@ -9,6 +9,8 @@ public class NPCManager : MonoBehaviour
     [SerializeField] private GameObject[] npcPrefabs;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private NPCData[] possibleNPCData;
+    [SerializeField] private NPCLooksData[] possibleNPCLooks;
+
     [SerializeField] private Transform canvasTransform; 
     
     private GameObject currentNPC;
@@ -45,9 +47,11 @@ public class NPCManager : MonoBehaviour
         // Setup data NPC
         NPC npcComponent = currentNPC.GetComponent<NPC>();
         npcComponent.npcData = possibleNPCData[Random.Range(0, possibleNPCData.Length)];
+        npcComponent.SpritesData = possibleNPCLooks[Random.Range(0, possibleNPCLooks.Length)];
         npcComponent.InitializeNPC(); // Memicu dialog otomatis
+        //npcComponent.InitializeNPC(possibleNPCData[Random.Range(0, possibleNPCData.Length)], possibleNPCLooks[Random.Range(0, possibleNPCLooks.Length)]);
 
-        
+
     }
 
     public void ClearCurrentNPC()

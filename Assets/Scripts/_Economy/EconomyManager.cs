@@ -17,7 +17,7 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
-    [SerializeField] private int currentMoney;
+    [SerializeField] public int currentMoney;
     [SerializeField] private TextMeshProUGUI moneyText;
 
     void Awake()
