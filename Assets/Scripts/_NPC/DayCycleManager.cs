@@ -9,7 +9,7 @@ public class DayCycleManager : MonoBehaviour
 
     [Header("Day Settings")]
     [SerializeField] private float dayDuration = 60f; // Durasi hari dalam detik
-    [SerializeField] private int currentDay = 1;
+    [SerializeField] public int currentDay = 1;
     [SerializeField] private TextMeshProUGUI dayText;
 
     [Header("NPC Refund")]

@@ -12,6 +12,8 @@ public class NPC : MonoBehaviour
     public NPCLooksData SpritesData;
     public bool wasServedCorrectly = false; // Menandakan apakah jamu yang diberikan benar
 
+    Animator animator;
+
     // Dipanggil oleh NPCManager saat spawn
     public void InitializeNPC() 
     {
@@ -39,6 +41,7 @@ public class NPC : MonoBehaviour
     }
     private void Start()
     {
+        animator = GetComponent<Animator>();
         GetComponent<Image>().sprite = Body;
         gameObject.transform.Find("Head").GetComponent<Image>().sprite = Head;
         gameObject.transform.Find("Body").GetComponent<Image>().sprite = Body;
@@ -83,6 +86,7 @@ public class NPC : MonoBehaviour
 
     IEnumerator DestroyAndRespawn()
 {
+        animator.Play("NPCExitAnim");
     yield return new WaitForSeconds(1f);
     
     // Pastikan NPC belum dihancurkan oleh proses lain (misalnya hari berakhir)
@@ -101,6 +105,7 @@ public class NPC : MonoBehaviour
         {
             DayCycleManager.Instance.ScheduleRefund(this,EconomyManager.Instance.GetJamuBasePrice(gameObject));
         }
-        Destroy(gameObject);
+        StartCoroutine(DestroyAndRespawn());
+        //Destroy(gameObject);
     }
 }

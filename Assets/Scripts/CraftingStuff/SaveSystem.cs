@@ -10,8 +10,9 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/Save.YALLSUCK";
         FileStream stream = new FileStream(path, FileMode.Create);
-        SaveData data = new SaveData(EconomyManager.Instance,DayCycleManager.Instance);
+        SaveData data = new SaveData(EconomyManager.Instance,DayCycleManager.Instance,gameManager);
         formatter.Serialize(stream, data);
+        stream.Close();
     }
     public static SaveData LoadData()
     {
@@ -26,7 +27,8 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError("File Not Found in "+ path);
+            Debug.LogError("Saves File Not Found in "+ path);
+
             return null;
         }
     }

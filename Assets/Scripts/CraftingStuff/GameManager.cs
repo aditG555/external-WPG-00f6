@@ -77,14 +77,29 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
+        LoadData();
     }
     public void SaveData()
     {
         SaveSystem.SaveData(this);
+        Debug.Log("Data Saved");
     }
     public void LoadData()
     {
         SaveData data = SaveSystem.LoadData();
+        if(data != null)
+        {
+            for (int i = 0; i < Shelve.Length; i++)
+            {
+                Shelve[i].Count = data.InventoryItems[i];
+                Debug.Log(i);
+            }
+            EconomyManager.Instance.Popularity = data.Popularity;
+            EconomyManager.Instance.currentMoney = data.Money;
+            DayCycleManager.Instance.currentDay = data.Day;
+        }
+        Debug.Log("Data Loaded");
+        
     }
     void Start()
     {
@@ -93,6 +108,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(InputAllowed && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SaveData();
+        }
     }
 }
