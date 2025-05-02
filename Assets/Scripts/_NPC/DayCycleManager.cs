@@ -13,10 +13,16 @@ public class DayCycleManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dayText;
 
     [Header("NPC Refund")]
-    [SerializeField] private float refundPenaltyMultiplier = 0.5f;
+    public float refundPenaltyMultiplier = 0.5f;
 
     private float dayTimer;
     private List<NPC> npcsToRefund = new List<NPC>();
+
+    [Header("Queue Settings")]
+    [SerializeField] private int npcPerDay = 5;
+
+    [Header("Daily Summary")]
+    [SerializeField] private DailySummaryUI dailySummaryUI;
 
     void Awake()
     {
@@ -48,22 +54,38 @@ public class DayCycleManager : MonoBehaviour
 
     public void StartNewDay()
     {
+        NPCQueue.Instance.ResetDailyStats();
+        NPCQueue.Instance.InitializeQueue(npcPerDay);
         dayTimer = dayDuration;
         currentDay++;
         UpdateDayUI();
-        
-        // Spawn NPC pertama hari ini
         NPCManager.Instance.SpawnNewNPC();
     }
 
     public void EndDay()
     {
-        // Proses refund untuk NPC yang salah diberi jamu
-        ProcessRefunds();
-        
-        // Bersihkan NPC yang tersisa
+        NPCQueue.Instance.ProcessRefunds();
         NPCManager.Instance.ClearCurrentNPC();
+        ShowDailySummary();
     }
+
+    private void ShowDailySummary()
+{
+    int total, correct;
+    NPCQueue.Instance.GetDailyStats(out total, out correct);
+    
+    // Ambil nilai harian sebelum di-reset
+    int dailyMoney = EconomyManager.Instance.GetDailyMoney();
+    
+    dailySummaryUI.ShowSummary(
+        currentDay,
+        total,
+        correct,
+        dailyMoney // Gunakan nilai harian
+    );
+    
+    EconomyManager.Instance.ResetDailyMoney();
+}
 
     public void ScheduleRefund(NPC npc, int baseAmount)
     {

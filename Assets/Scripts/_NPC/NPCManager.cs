@@ -29,11 +29,10 @@ public class NPCManager : MonoBehaviour
     public void SpawnNewNPC()
     {
         // Hancurkan NPC lama jika ada
-        if (currentNPC != null)
-        {
-            Destroy(currentNPC);
-            currentNPC = null;
-        }
+        if (currentNPC != null) Destroy(currentNPC);
+
+        NPCData data = NPCQueue.Instance.GetNextNPCData();
+        if (data == null) return;
         
         // Pilih spawn point secara bergantian
         Transform spawnPoint = spawnPoints[currentSpawnIndex];
@@ -46,9 +45,13 @@ public class NPCManager : MonoBehaviour
         
         // Setup data NPC
         NPC npcComponent = currentNPC.GetComponent<NPC>();
-        npcComponent.npcData = possibleNPCData[Random.Range(0, possibleNPCData.Length)];
+        npcComponent.npcData = data;
         npcComponent.SpritesData = possibleNPCLooks[Random.Range(0, possibleNPCLooks.Length)];
-        npcComponent.InitializeNPC(); // Memicu dialog otomatis
+        NPCQueue.Instance.RegisterSpawnedNPC(npcComponent);
+        npcComponent.InitializeNPC();
+        //npcComponent.InitializeNPC(); // Memicu dialog otomatis
+        
+        //npcComponent.npcData = possibleNPCData[Random.Range(0, possibleNPCData.Length)];
         //npcComponent.InitializeNPC(possibleNPCData[Random.Range(0, possibleNPCData.Length)], possibleNPCLooks[Random.Range(0, possibleNPCLooks.Length)]);
 
 

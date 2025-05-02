@@ -65,6 +65,8 @@ public class NPC : MonoBehaviour
             resultText, 
             2f
         );
+
+        NPCQueue.Instance.UpdateJamuStats(isCorrect);
         
         // Proses transaksi ekonomi
         int baseValue = EconomyManager.Instance.GetJamuBasePrice(jamuItem);
@@ -87,17 +89,25 @@ public class NPC : MonoBehaviour
     IEnumerator DestroyAndRespawn()
 {
         animator.Play("NPCExitAnim");
-    yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f);
     
-    // Pastikan NPC belum dihancurkan oleh proses lain (misalnya hari berakhir)
-    if (gameObject != null)
-    {
-        Destroy(this.gameObject);
-        Debug.Log("GameObject Destroyed after being served.");
-        NPCManager.Instance.SpawnNewNPC();
-        Debug.Log("NPC spawned new NPC after being served.");   
+        yield return new WaitForSeconds(1f);
+        
+        if (gameObject != null)
+        {
+            Destroy(gameObject);
+            
+            // Spawn NPC berikutnya jika antrian belum habis
+            if (!NPCQueue.Instance.IsQueueEmpty())
+            {
+                NPCManager.Instance.SpawnNewNPC();
+            }
+            else
+            {
+                DayCycleManager.Instance.EndDay();
+            }
+        }
     }
-}
 
     public void HandleDayEnd()
     {
