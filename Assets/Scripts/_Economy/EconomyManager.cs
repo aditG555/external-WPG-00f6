@@ -17,8 +17,9 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
-    [SerializeField] private int currentMoney;
+    public int currentMoney;
     [SerializeField] private TextMeshProUGUI moneyText;
+    private int dailyMoneyDelta = 0;
 
     void Awake()
     {
@@ -72,6 +73,11 @@ public class EconomyManager : MonoBehaviour
         return 0;
     }
 
+    public int GetDailyMoney()
+    {
+        return dailyMoneyDelta;
+    }
+
     public void ProcessJamuTransaction(NPCTrait[] traits, bool isCorrect, int baseValue)
     {
         int finalAmount = baseValue;
@@ -94,6 +100,11 @@ public class EconomyManager : MonoBehaviour
 
         if(isCorrect) AddMoney(finalAmount);
         else RemoveMoney(finalAmount);
+
+        if(isCorrect) dailyMoneyDelta += finalAmount;
+        else dailyMoneyDelta -= finalAmount;
+        
+        UpdateMoneyUI(); 
     }
 
     private void UpdateMoneyUI()
@@ -102,8 +113,12 @@ public class EconomyManager : MonoBehaviour
     }
 
     public void ProcessRefund(int amount)
-{
-    currentMoney = Mathf.Max(currentMoney - amount, 0);
-    UpdateMoneyUI();
-}
+    {
+        currentMoney = Mathf.Max(currentMoney - amount, 0);
+        UpdateMoneyUI();
+    }
+    public void ResetDailyMoney()
+    {
+        dailyMoneyDelta = 0;
+    }
 }

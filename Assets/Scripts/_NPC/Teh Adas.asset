@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleProblems:
   - Sakit Perut
-  desiredJamuTypes:
-  - TehAdas
+  desiredJamuTypes: 05000000
   traits: 00000000
   correctDialog: Yey
   wrongDialog: Perut saya tambah Sakit

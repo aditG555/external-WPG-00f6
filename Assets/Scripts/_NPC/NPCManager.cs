@@ -8,7 +8,7 @@ public class NPCManager : MonoBehaviour
     [Header("NPC Settings")]
     [SerializeField] private GameObject[] npcPrefabs;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private NPCData[] possibleNPCData;
+    public NPCData[] possibleNPCData;
     [SerializeField] private Transform canvasTransform; 
     
     private GameObject currentNPC;
@@ -27,11 +27,10 @@ public class NPCManager : MonoBehaviour
     public void SpawnNewNPC()
     {
         // Hancurkan NPC lama jika ada
-        if (currentNPC != null)
-        {
-            Destroy(currentNPC);
-            currentNPC = null;
-        }
+        if (currentNPC != null) Destroy(currentNPC);
+
+        NPCData data = NPCQueue.Instance.GetNextNPCData();
+        if (data == null) return;
         
         // Pilih spawn point secara bergantian
         Transform spawnPoint = spawnPoints[currentSpawnIndex];
@@ -44,8 +43,10 @@ public class NPCManager : MonoBehaviour
         
         // Setup data NPC
         NPC npcComponent = currentNPC.GetComponent<NPC>();
-        npcComponent.npcData = possibleNPCData[Random.Range(0, possibleNPCData.Length)];
-        npcComponent.InitializeNPC(); // Memicu dialog otomatis
+        npcComponent.npcData = data;
+        npcComponent.InitializeNPC();
+        
+        NPCQueue.Instance.RegisterSpawnedNPC(npcComponent);
 
         
     }
