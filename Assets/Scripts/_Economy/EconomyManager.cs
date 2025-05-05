@@ -17,9 +17,9 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
-    [SerializeField] public int currentMoney;
+    public int currentMoney;
     [SerializeField] private TextMeshProUGUI moneyText;
-    public int Popularity = 1;
+    private int dailyMoneyDelta = 0;
 
     void Awake()
     {
@@ -73,6 +73,11 @@ public class EconomyManager : MonoBehaviour
         return 0;
     }
 
+    public int GetDailyMoney()
+    {
+        return dailyMoneyDelta;
+    }
+
     public void ProcessJamuTransaction(NPCTrait[] traits, bool isCorrect, int baseValue)
     {
         int finalAmount = baseValue;
@@ -83,24 +88,23 @@ public class EconomyManager : MonoBehaviour
             {
                 if(trait == NPCTrait.Generous) finalAmount += 5;
                 if(trait == NPCTrait.Forgetful) finalAmount += 2;
-                Popularity++;
             }
             else
             {
                 if(trait == NPCTrait.Perfectionist) finalAmount *= 2;
                 if(trait == NPCTrait.Grumpy) finalAmount += 10;
-                Popularity--;
             }
         }
 
         Debug.Log($"Transaksi: {(isCorrect ? "+" : "-")}{finalAmount}");
 
-        if (isCorrect)
-        {
-            AddMoney(finalAmount);
-            Popularity++;
-        }
+        if(isCorrect) AddMoney(finalAmount);
         else RemoveMoney(finalAmount);
+
+        if(isCorrect) dailyMoneyDelta += finalAmount;
+        else dailyMoneyDelta -= finalAmount;
+        
+        UpdateMoneyUI(); 
     }
 
     private void UpdateMoneyUI()
@@ -109,8 +113,12 @@ public class EconomyManager : MonoBehaviour
     }
 
     public void ProcessRefund(int amount)
-{
-    currentMoney = Mathf.Max(currentMoney - amount, 0);
-    UpdateMoneyUI();
-}
+    {
+        currentMoney = Mathf.Max(currentMoney - amount, 0);
+        UpdateMoneyUI();
+    }
+    public void ResetDailyMoney()
+    {
+        dailyMoneyDelta = 0;
+    }
 }
