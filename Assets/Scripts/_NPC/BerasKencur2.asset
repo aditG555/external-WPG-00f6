@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e92b805861800fa4992f523d823d795d, type: 3}
-  m_Name: BerasKencur
+  m_Name: BerasKencur2
   m_EditorClassIdentifier: 
   possibleProblems:
-  - Tolong berikan aku jamu beras kencur satu
+  - Pagi. Jamu beras kencurnya satu, mas
   desiredJamuTypes: 01000000
-  traits: 02000000
-  correctDialog: Jamu beras kencur selalu membuat perutku terasa nyaman. Terimakasih.
-  wrongDialog: "ini bukan jamu pesananku\u2026"
-  refundDialog: apalan
+  traits: 01000000
+  correctDialog: Rasa jamunya enak sekali! Terimakasih
+  wrongDialog: "Jamu apa ini? Ini sama sekali bukan seperti jamu yang kupesan\u2026"
+  refundDialog: awok
