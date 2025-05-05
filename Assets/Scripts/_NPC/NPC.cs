@@ -5,7 +5,7 @@ public class NPC : MonoBehaviour
 {
     public NPCData npcData;
     public string currentProblem;
-    public Jamu.jamuType desiredJamu;
+    public string desiredJamu;
     public bool wasServedCorrectly = false; // Menandakan apakah jamu yang diberikan benar
 
     // Dipanggil oleh NPCManager saat spawn
@@ -37,8 +37,6 @@ public class NPC : MonoBehaviour
             resultText, 
             2f
         );
-
-        NPCQueue.Instance.UpdateJamuStats(isCorrect);
         
         // Proses transaksi ekonomi
         int baseValue = EconomyManager.Instance.GetJamuBasePrice(jamuItem);
@@ -55,28 +53,22 @@ public class NPC : MonoBehaviour
     bool CheckJamu(GameObject jamuItem)
     {
         Jamu jamu = jamuItem.GetComponent<Jamu>();
-        return jamu != null && jamu.type == desiredJamu;
+        return jamu != null && jamu.jamuType == desiredJamu;
     }
 
     IEnumerator DestroyAndRespawn()
+{
+    yield return new WaitForSeconds(1f);
+    
+    // Pastikan NPC belum dihancurkan oleh proses lain (misalnya hari berakhir)
+    if (gameObject != null)
     {
-        yield return new WaitForSeconds(1f);
-        
-        if (gameObject != null)
-        {
-            Destroy(gameObject);
-            
-            // Spawn NPC berikutnya jika antrian belum habis
-            if (!NPCQueue.Instance.IsQueueEmpty())
-            {
-                NPCManager.Instance.SpawnNewNPC();
-            }
-            else
-            {
-                DayCycleManager.Instance.EndDay();
-            }
-        }
+        //Destroy(this.gameObject);
+        //Debug.Log("GameObject Destroyed after being served.");
+        NPCManager.Instance.SpawnNewNPC();
+        Debug.Log("NPC spawned new NPC after being served.");   
     }
+}
 
     public void HandleDayEnd()
     {
