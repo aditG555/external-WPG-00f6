@@ -8,25 +8,25 @@ public class DayCycleManager : MonoBehaviour
     public static DayCycleManager Instance;
 
     [Header("Day Settings")]
-<<<<<<< Updated upstream
-    [SerializeField] private float dayDuration = 60f; // Durasi hari dalam detik
-    [SerializeField] private int currentDay = 1;
-=======
     public float dayDuration = 60f; // Durasi hari dalam detik
     [SerializeField] public int currentDay = 1;
->>>>>>> Stashed changes
     [SerializeField] private TextMeshProUGUI dayText;
 
     [Header("NPC Refund")]
-    [SerializeField] private float refundPenaltyMultiplier = 0.5f;
+    public float refundPenaltyMultiplier = 0.5f;
 
-    [Header("LogBook")]
-    [SerializeField] GameObject LogBook;
-
-    public float dayTimer;
+    private float dayTimer;
     private List<NPC> npcsToRefund = new List<NPC>();
 
-    bool EYES = true;
+    [Header("Queue Settings")]
+    [SerializeField] private int npcPerDay = 5;
+
+    [Header("Daily Summary")]
+    [SerializeField] private DailySummaryUI dailySummaryUI;
+    
+    [Header("Rating System")]
+    [SerializeField] private RatingSystem ratingSystem;
+
 
     void Awake()
     {
@@ -51,36 +51,54 @@ public class DayCycleManager : MonoBehaviour
 
         if (dayTimer <= 0)
         {
-            if (EYES)
-            {
-                EndDay();
-                EYES = false;
-            }
-            
-            //StartNewDay();
+            EndDay();
+            StartNewDay();
         }
     }
 
     public void StartNewDay()
     {
+        NPCQueue.Instance.ResetDailyStats();
+        NPCQueue.Instance.InitializeQueue(npcPerDay);
         dayTimer = dayDuration;
         currentDay++;
         UpdateDayUI();
-        
-        // Spawn NPC pertama hari ini
         NPCManager.Instance.SpawnNewNPC();
     }
 
     public void EndDay()
     {
-        // Proses refund untuk NPC yang salah diberi jamu
-        ProcessRefunds();
-
-        LogBook.SetActive(true);
-
-        
-        // Bersihkan NPC yang tersisa
+        NPCQueue.Instance.ProcessRefunds();
         NPCManager.Instance.ClearCurrentNPC();
+        ShowDailySummary();
+    }
+
+    private void ShowDailySummary()
+    {
+        int total, correct;
+        NPCQueue.Instance.GetDailyStats(out total, out correct);
+        
+        // Tambahkan hasil hari ini ke total kumulatif
+        RatingSystem.Instance.AddDayResults(correct, total);
+        
+        // Dapatkan rating kumulatif
+        float rating = RatingSystem.Instance.GetCurrentRating();
+        
+        // Hitung NPC untuk hari berikutnya berdasarkan rating kumulatif
+        int nextDayNPC = RatingSystem.Instance.CalculateNPCForNextDay(currentDay);
+        
+        // Update NPC per hari berikutnya
+        npcPerDay = nextDayNPC;
+        
+        dailySummaryUI.ShowSummary(
+            currentDay,
+            total,
+            correct,
+            EconomyManager.Instance.GetDailyMoney(),
+            rating
+        );
+        
+        EconomyManager.Instance.ResetDailyMoney();
     }
 
     public void ScheduleRefund(NPC npc, int baseAmount)

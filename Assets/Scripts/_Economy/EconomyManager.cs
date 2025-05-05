@@ -5,7 +5,7 @@ using System;
 [System.Serializable]
 public class ItemData
 {
-    public string itemName;
+    public Jamu.jamuType itemName; // Ganti dari Jamu[] ke enum
     public int sellValue;
 }
 
@@ -17,30 +17,28 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
+<<<<<<< HEAD
     [SerializeField] private TextMeshProUGUI moneyText;
     public static int currentMoney;
 
     public int Popularity = 1;
+=======
+    public int currentMoney;
+    [SerializeField] private TextMeshProUGUI moneyText;
+    private int dailyMoneyDelta = 0;
+>>>>>>> parent of d3044b7 (Add Changes)
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(this);
-        }
-        //DontDestroyOnLoad(this);
+        Instance = this;
     }
+
     void Start()
     {
         UpdateMoneyUI();
-        Debug.Log("Economy Start() is Triggered");
     }
 
-    public int GetSellValue(string itemName)
+    public int GetSellValue(Jamu.jamuType itemName)
     {
         foreach (ItemData item in itemDatabase)
         {
@@ -71,12 +69,20 @@ public class EconomyManager : MonoBehaviour
         if(jamu == null) { return 0; }
         foreach (ItemData item in itemDatabase)
         {
-            if (item.itemName == jamu.jamuType)
+            if (item.itemName == jamu.type)
+            {
+                return item.sellValue;
+            }
             {
                 return item.sellValue;
             }
         }
         return 0;
+    }
+
+    public int GetDailyMoney()
+    {
+        return dailyMoneyDelta;
     }
 
     public void ProcessJamuTransaction(NPCTrait[] traits, bool isCorrect, int baseValue)
@@ -101,16 +107,25 @@ public class EconomyManager : MonoBehaviour
 
         if(isCorrect) AddMoney(finalAmount);
         else RemoveMoney(finalAmount);
+
+        if(isCorrect) dailyMoneyDelta += finalAmount;
+        else dailyMoneyDelta -= finalAmount;
+        
+        UpdateMoneyUI(); 
     }
 
-    public void UpdateMoneyUI()
+    private void UpdateMoneyUI()
     {
         moneyText.text = currentMoney.ToString();
     }
 
     public void ProcessRefund(int amount)
-{
-    currentMoney = Mathf.Max(currentMoney - amount, 0);
-    UpdateMoneyUI();
-}
+    {
+        currentMoney = Mathf.Max(currentMoney - amount, 0);
+        UpdateMoneyUI();
+    }
+    public void ResetDailyMoney()
+    {
+        dailyMoneyDelta = 0;
+    }
 }
