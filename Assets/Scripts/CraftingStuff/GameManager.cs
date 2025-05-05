@@ -64,9 +64,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-<<<<<<< Updated upstream
-        DontDestroyOnLoad(this);
-=======
         Debug.Log("GM Start() is Triggerde!");
         LoadData();
         EconomyManager.Instance.UpdateMoneyUI();

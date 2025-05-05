@@ -17,15 +17,10 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
-<<<<<<< Updated upstream
-    [SerializeField] private int currentMoney;
-    [SerializeField] private TextMeshProUGUI moneyText;
-=======
     [SerializeField] private TextMeshProUGUI moneyText;
     public static int currentMoney;
 
     public int Popularity = 1;
->>>>>>> Stashed changes
 
     void Awake()
     {
