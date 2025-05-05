@@ -17,32 +17,18 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
-<<<<<<< Updated upstream
-    [SerializeField] private int currentMoney;
+    [SerializeField] public int currentMoney;
     [SerializeField] private TextMeshProUGUI moneyText;
-=======
-    [SerializeField] private TextMeshProUGUI moneyText;
-    public static int currentMoney;
-
     public int Popularity = 1;
->>>>>>> Stashed changes
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(this);
-        }
-        //DontDestroyOnLoad(this);
+        Instance = this;
     }
+
     void Start()
     {
         UpdateMoneyUI();
-        Debug.Log("Economy Start() is Triggered");
     }
 
     public int GetSellValue(Jamu.jamuType itemName)
@@ -117,7 +103,7 @@ public class EconomyManager : MonoBehaviour
         else RemoveMoney(finalAmount);
     }
 
-    public void UpdateMoneyUI()
+    private void UpdateMoneyUI()
     {
         moneyText.text = currentMoney.ToString();
     }
