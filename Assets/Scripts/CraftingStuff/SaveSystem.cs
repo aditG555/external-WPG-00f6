@@ -5,18 +5,18 @@ using UnityEngine;
 
 public static class SaveSystem
 {
-    public static void SaveData(GameManager gameManager)
+    public static void SaveData(GameManager gameManager, EconomyManager economyManager, DayCycleManager dayCycleManager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Save.YALLSUCK";
+        string path = Application.persistentDataPath + "/Save.DATSAVE";
         FileStream stream = new FileStream(path, FileMode.Create);
-        SaveData data = new SaveData(EconomyManager.Instance,DayCycleManager.Instance,gameManager);
+        SaveData data = new SaveData(economyManager, dayCycleManager, gameManager);
         formatter.Serialize(stream, data);
         stream.Close();
     }
     public static SaveData LoadData()
     {
-        string path = Application.persistentDataPath + "/Save.YALLSUCK";
+        string path = Application.persistentDataPath + "/Save.DATSAVE";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

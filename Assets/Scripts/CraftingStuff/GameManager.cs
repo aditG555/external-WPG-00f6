@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public UIDocument UIDocument;
@@ -76,12 +73,20 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+<<<<<<< Updated upstream
         DontDestroyOnLoad(this);
+=======
+        Debug.Log("GM Start() is Triggerde!");
         LoadData();
+        EconomyManager.Instance.UpdateMoneyUI();
+        //DontDestroyOnLoad(this);
+
     }
     public void SaveData()
     {
-        SaveSystem.SaveData(this);
+        SaveSystem.SaveData(this,EconomyManager.Instance,DayCycleManager.Instance);
+        //Debug.Log(EconomyManager.Instance.Popularity);
+        //Debug.Log(EconomyManager.Instance.currentMoney);
         Debug.Log("Data Saved");
     }
     public void LoadData()
@@ -92,15 +97,19 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < Shelve.Length; i++)
             {
                 Shelve[i].Count = data.InventoryItems[i];
-                Debug.Log(i);
             }
             EconomyManager.Instance.Popularity = data.Popularity;
-            EconomyManager.Instance.currentMoney = data.Money;
+            EconomyManager.currentMoney = data.Money;
             DayCycleManager.Instance.currentDay = data.Day;
+            Debug.Log(data.Popularity);
+            Debug.Log(data.Money);
+            Debug.Log(data.Day);
         }
         Debug.Log("Data Loaded");
         
+>>>>>>> Stashed changes
     }
+    
     void Start()
     {
         
