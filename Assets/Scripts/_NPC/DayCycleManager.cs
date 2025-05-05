@@ -8,13 +8,8 @@ public class DayCycleManager : MonoBehaviour
     public static DayCycleManager Instance;
 
     [Header("Day Settings")]
-<<<<<<< Updated upstream
-    [SerializeField] private float dayDuration = 60f; // Durasi hari dalam detik
-    [SerializeField] private int currentDay = 1;
-=======
     public float dayDuration = 60f; // Durasi hari dalam detik
     [SerializeField] public int currentDay = 1;
->>>>>>> Stashed changes
     [SerializeField] private TextMeshProUGUI dayText;
 
     [Header("NPC Refund")]
