@@ -15,8 +15,8 @@ public class SaveData
         {
             InventoryItems[i] = gameManager.Shelve[i].Count;
         }
-        Money = economy.currentMoney;
+        Money = EconomyManager.currentMoney;
         Popularity = economy.Popularity;
-
+        Day = day.currentDay;
     }
 }

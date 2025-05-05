@@ -45,15 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDatabase:
-  - itemName: Temulawak
+  - itemName: 0
     sellValue: 20
-  - itemName: B
+  - itemName: 0
     sellValue: 10
-  - itemName: C
+  - itemName: 0
     sellValue: 15
-  - itemName: D
+  - itemName: 0
     sellValue: 20
-  - itemName: E
+  - itemName: 0
     sellValue: 25
-  currentMoney: 100
   moneyText: {fileID: 0}
+  currentMoney: 0
+  Popularity: 1
