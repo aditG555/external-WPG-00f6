@@ -5,7 +5,7 @@ using System;
 [System.Serializable]
 public class ItemData
 {
-    public Jamu.jamuType itemName; // Ganti dari Jamu[] ke enum
+    public string itemName;
     public int sellValue;
 }
 
@@ -17,21 +17,35 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private ItemData[] itemDatabase;
 
     [Header("Money Settings")]
-    [SerializeField] public int currentMoney;
+<<<<<<< Updated upstream
+    [SerializeField] private int currentMoney;
     [SerializeField] private TextMeshProUGUI moneyText;
+=======
+    [SerializeField] private TextMeshProUGUI moneyText;
+    public static int currentMoney;
+
     public int Popularity = 1;
+>>>>>>> Stashed changes
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+        //DontDestroyOnLoad(this);
     }
-
     void Start()
     {
         UpdateMoneyUI();
+        Debug.Log("Economy Start() is Triggered");
     }
 
-    public int GetSellValue(Jamu.jamuType itemName)
+    public int GetSellValue(string itemName)
     {
         foreach (ItemData item in itemDatabase)
         {
@@ -62,10 +76,7 @@ public class EconomyManager : MonoBehaviour
         if(jamu == null) { return 0; }
         foreach (ItemData item in itemDatabase)
         {
-            if (item.itemName == jamu.type)
-            {
-                return item.sellValue;
-            }
+            if (item.itemName == jamu.jamuType)
             {
                 return item.sellValue;
             }
@@ -83,27 +94,21 @@ public class EconomyManager : MonoBehaviour
             {
                 if(trait == NPCTrait.Generous) finalAmount += 5;
                 if(trait == NPCTrait.Forgetful) finalAmount += 2;
-                Popularity++;
             }
             else
             {
                 if(trait == NPCTrait.Perfectionist) finalAmount *= 2;
                 if(trait == NPCTrait.Grumpy) finalAmount += 10;
-                Popularity--;
             }
         }
 
         Debug.Log($"Transaksi: {(isCorrect ? "+" : "-")}{finalAmount}");
 
-        if (isCorrect)
-        {
-            AddMoney(finalAmount);
-            Popularity++;
-        }
+        if(isCorrect) AddMoney(finalAmount);
         else RemoveMoney(finalAmount);
     }
 
-    private void UpdateMoneyUI()
+    public void UpdateMoneyUI()
     {
         moneyText.text = currentMoney.ToString();
     }
