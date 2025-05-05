@@ -12,19 +12,23 @@ public class DailySummaryUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyEarnedText;
     [SerializeField] private Button nextDayButton;
 
+    [Header("Rating Elements")]
+    [SerializeField] private GameObject[] starIcons;
+
     void Start()
     {
         nextDayButton.onClick.AddListener(StartNewDay);
         summaryPanel.SetActive(false);
     }
 
-    public void ShowSummary(int day, int total, int correct, int money)
+    public void ShowSummary(int day, int total, int correct, int money, float rating)
     {
         summaryPanel.SetActive(true);
         dayText.text = $"Day {day} Summary";
         totalServedText.text = $"{total}";
         correctServedText.text = $"{correct}";
         moneyEarnedText.text = $"Money Earned: {money}";
+        UpdateStarRating(rating);
     }
 
     void StartNewDay()
@@ -32,4 +36,27 @@ public class DailySummaryUI : MonoBehaviour
         summaryPanel.SetActive(false);
         DayCycleManager.Instance.StartNewDay();
     }
+
+    void UpdateStarRating(float rating)
+{
+    // Reset semua bintang
+    foreach (var star in starIcons)
+    {
+        star.SetActive(false);
+    }
+    
+    // Aktifkan bintang sesuai rating
+    for (int i = 0; i < Mathf.FloorToInt(rating); i++)
+    {
+        if(i < starIcons.Length) starIcons[i].SetActive(true);
+    }
+    
+    // Handle setengah bintang
+    if (rating % 1 >= 0.5f)
+    {
+        int halfStarIndex = Mathf.FloorToInt(rating);
+        if(halfStarIndex < starIcons.Length) 
+            starIcons[halfStarIndex].SetActive(true);
+    }
+}
 }

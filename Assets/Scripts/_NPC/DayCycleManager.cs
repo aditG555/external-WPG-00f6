@@ -23,6 +23,10 @@ public class DayCycleManager : MonoBehaviour
 
     [Header("Daily Summary")]
     [SerializeField] private DailySummaryUI dailySummaryUI;
+    
+    [Header("Rating System")]
+    [SerializeField] private RatingSystem ratingSystem;
+
 
     void Awake()
     {
@@ -70,22 +74,32 @@ public class DayCycleManager : MonoBehaviour
     }
 
     private void ShowDailySummary()
-{
-    int total, correct;
-    NPCQueue.Instance.GetDailyStats(out total, out correct);
-    
-    // Ambil nilai harian sebelum di-reset
-    int dailyMoney = EconomyManager.Instance.GetDailyMoney();
-    
-    dailySummaryUI.ShowSummary(
-        currentDay,
-        total,
-        correct,
-        dailyMoney // Gunakan nilai harian
-    );
-    
-    EconomyManager.Instance.ResetDailyMoney();
-}
+    {
+        int total, correct;
+        NPCQueue.Instance.GetDailyStats(out total, out correct);
+        
+        // Tambahkan hasil hari ini ke total kumulatif
+        RatingSystem.Instance.AddDayResults(correct, total);
+        
+        // Dapatkan rating kumulatif
+        float rating = RatingSystem.Instance.GetCurrentRating();
+        
+        // Hitung NPC untuk hari berikutnya berdasarkan rating kumulatif
+        int nextDayNPC = RatingSystem.Instance.CalculateNPCForNextDay(currentDay);
+        
+        // Update NPC per hari berikutnya
+        npcPerDay = nextDayNPC;
+        
+        dailySummaryUI.ShowSummary(
+            currentDay,
+            total,
+            correct,
+            EconomyManager.Instance.GetDailyMoney(),
+            rating
+        );
+        
+        EconomyManager.Instance.ResetDailyMoney();
+    }
 
     public void ScheduleRefund(NPC npc, int baseAmount)
     {
