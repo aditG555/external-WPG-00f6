@@ -1,19 +1,9 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public UIDocument UIDocument;
-    [Space(10)]
-    [Header("Inventory Slots")]
-    [SerializeField] public ShelveItme[] Shelve;
-    //[SerializeField] public ShelveItme jaheShelve;
-    //[SerializeField] public ShelveItme bijiAdasShelve;
-    //[SerializeField] public ShelveItme GulaPasirShelve;
-    [Space(10)]
     public float SceneSwipeFactor = 900;
     public static GameManager _instance;
     public List<ItemSlot> Slots;
@@ -25,10 +15,8 @@ public class GameManager : MonoBehaviour
             if (!slot.IsFilled())
             {
                 Debug.Log(slot.IsFilled());
-                //item.GetComponent<DragAndDrop>().ParentAfterDrag = slot.transform;
-                item.GetComponent<DragAndDrop>().InsertInto(slot.gameObject);
-                //slot.SetChild(item);
-                item.GetComponent<DragAndDrop>().ParentBeforeDrag = slot.transform;
+                item.GetComponent<DragAndDrop>().ParentAfterDrag = slot.transform;
+                slot.SetChild(item);
                 item.GetComponent<DragAndDrop>().transform.position = item.GetComponent<DragAndDrop>().ParentAfterDrag.position;
                 return true;
             }
@@ -76,16 +64,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-<<<<<<< HEAD
         Debug.Log("GM Start() is Triggerde!");
-=======
-        DontDestroyOnLoad(this);
->>>>>>> parent of d3044b7 (Add Changes)
         LoadData();
+        EconomyManager.Instance.UpdateMoneyUI();
+        //DontDestroyOnLoad(this);
+
     }
     public void SaveData()
     {
-        SaveSystem.SaveData(this);
+        SaveSystem.SaveData(this,EconomyManager.Instance,DayCycleManager.Instance);
+        //Debug.Log(EconomyManager.Instance.Popularity);
+        //Debug.Log(EconomyManager.Instance.currentMoney);
         Debug.Log("Data Saved");
     }
     public void LoadData()
@@ -96,16 +85,19 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < Shelve.Length; i++)
             {
                 Shelve[i].Count = data.InventoryItems[i];
-                Debug.Log(i);
             }
             EconomyManager.Instance.Popularity = data.Popularity;
-            EconomyManager.Instance.currentMoney = data.Money;
+            EconomyManager.currentMoney = data.Money;
             DayCycleManager.Instance.currentDay = data.Day;
+            Debug.Log(data.Popularity);
+            Debug.Log(data.Money);
+            Debug.Log(data.Day);
         }
         Debug.Log("Data Loaded");
         
 >>>>>>> Stashed changes
     }
+    
     void Start()
     {
         
@@ -113,9 +105,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(InputAllowed && Input.GetKeyDown(KeyCode.Escape))
-        {
-            SaveData();
-        }
+        
     }
 }
