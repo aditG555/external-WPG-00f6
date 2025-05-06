@@ -95,7 +95,6 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("Data Loaded");
         
->>>>>>> Stashed changes
     }
     
     void Start()
