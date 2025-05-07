@@ -5584,6 +5584,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7189053924449745870, guid: bb0fd2dba86baf5449101afb32126afa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189053924449745870, guid: bb0fd2dba86baf5449101afb32126afa, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
