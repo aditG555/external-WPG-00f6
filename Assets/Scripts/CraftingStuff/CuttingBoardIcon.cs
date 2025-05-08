@@ -1,42 +1,53 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Ulekan : MonoBehaviour, IDropHandler
+public class CuttingBoardIcon : MonoBehaviour, IPointerDownHandler, IDropHandler
 {
     [SerializeField] UnityEvent Activate;
-    [SerializeField] UlekanInteraction interaction;
+    [SerializeField] CuttingInteraction interaction;
 
     [Header("Item Ouput List")]
     [Space(10)]
-    [SerializeField] GameObject BroWhatOut;
     [SerializeField] GameObject JaheOut;
     [SerializeField] GameObject KencurOut;
     [SerializeField] GameObject TemulawakOut;
     [SerializeField] GameObject KunyitOut;
     [SerializeField] GameObject SeraiOut;
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        
+    }
     public void OnDrop(PointerEventData eventData)
     {
-        if(eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
+        if (eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
         {
             Debug.Log("Ulekan Just Got Dropepd something");
-            if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeUllek)
+            if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeCut)
             {
                 Debug.Log("ello");
                 DragAndDrop item = eventData.pointerDrag.GetComponent<DragAndDrop>();
                 //if(eventData.pointerDrag.GetComponent<DragAndDrop>().itemType == ItemType.)
                 switch (eventData.pointerDrag.GetComponent<DragAndDrop>().itemType)
                 {
-                    case ItemType.Air:
-                        interaction.ItemOutput = BroWhatOut;
-                        break;
                     case ItemType.Jahe:
                         interaction.ItemOutput = JaheOut;
                         break;
+                    case ItemType.Kencur:
+                        interaction.ItemOutput = KencurOut;
+                        break;
+                    case ItemType.Temulawak:
+                        interaction.ItemOutput = TemulawakOut;
+                        break;
+                    case ItemType.Serai:
+                        interaction.ItemOutput = SeraiOut;
+                        break;
+                    case ItemType.Kunyit:
+                        interaction.ItemOutput = KunyitOut;
+                        break;
                     default:
-                        interaction.ItemOutput = BroWhatOut;
+                        interaction.ItemOutput = JaheOut;
                         break;
                 }
                 if (GameManager._instance.isFilled())
@@ -53,7 +64,9 @@ public class Ulekan : MonoBehaviour, IDropHandler
                 }
                 //eventData.pointerDrag.GetComponent<DragAndDrop>().ParentBeforeDrag = null;
             }
-            
+
         }
     }
+
 }
+

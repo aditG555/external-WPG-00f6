@@ -8,7 +8,7 @@ public class NPCManager : MonoBehaviour
     [Header("NPC Settings")]
     [SerializeField] private GameObject[] npcPrefabs;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private NPCData[] possibleNPCData;
+    public NPCData[] possibleNPCData;
     [SerializeField] private NPCLooksData[] possibleNPCLooks;
 
     [SerializeField] private Transform canvasTransform; 

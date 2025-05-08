@@ -11,6 +11,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public bool canbeDrag = true;
     public bool canbeUllek = true;
     public bool canbeBoil = true;
+    public bool canbeCut = true;
     public int MaxItemStack = 10;
     public ItemType itemType;
     public Transform ParentAfterDrag;
