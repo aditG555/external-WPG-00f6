@@ -27,7 +27,7 @@ public class ShelveItme : DragAndDrop,IDropHandler
     private void Start()
     {
         Label = this.gameObject.transform.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        AddCount(10);
+        UpdateCount();
     }
     public override void OnBeginDrag(PointerEventData eventData)
     {
@@ -60,6 +60,14 @@ public class ShelveItme : DragAndDrop,IDropHandler
             UpdateText(Count);
         }
     }
+    public void UpdateCount()
+    {
+        if (!isInfinite)
+        {
+            UpdateText(Count);
+        }
+    }
+
 
     public void MinCount(int val)
     {

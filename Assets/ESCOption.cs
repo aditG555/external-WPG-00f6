@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ESCOption : MonoBehaviour
 {
@@ -30,5 +31,9 @@ public class ESCOption : MonoBehaviour
             animator.Play("EscON");
             //TabsOpen=true;
         }
+    }
+    public void Exit()
+    {
+        SceneManager.LoadScene("MainGame");
     }
 }

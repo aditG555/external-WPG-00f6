@@ -7,6 +7,7 @@ public class NPCReceiver : MonoBehaviour, IDropHandler
     {
         if(eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
         {
+            if(eventData.pointerDrag.GetComponent<ShelveItme>() != null) return;
             GameObject jamuItem = eventData.pointerDrag;
             GetComponent<NPC>().HandleItemDrop(jamuItem);
             Destroy(jamuItem); // Hancurkan item setelah digunakan

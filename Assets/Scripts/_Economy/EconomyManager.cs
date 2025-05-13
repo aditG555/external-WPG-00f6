@@ -20,6 +20,7 @@ public class EconomyManager : MonoBehaviour
     public int currentMoney;
     [SerializeField] private TextMeshProUGUI moneyText;
     private int dailyMoneyDelta = 0;
+    public int Popularity = 1;
 
     void Awake()
     {
@@ -88,17 +89,23 @@ public class EconomyManager : MonoBehaviour
             {
                 if(trait == NPCTrait.Generous) finalAmount += 5;
                 if(trait == NPCTrait.Forgetful) finalAmount += 2;
+                Popularity++;
             }
             else
             {
                 if(trait == NPCTrait.Perfectionist) finalAmount *= 2;
                 if(trait == NPCTrait.Grumpy) finalAmount += 10;
+                Popularity--;
             }
         }
 
         Debug.Log($"Transaksi: {(isCorrect ? "+" : "-")}{finalAmount}");
 
-        if(isCorrect) AddMoney(finalAmount);
+        if (isCorrect)
+        {
+            AddMoney(finalAmount);
+            Popularity++;
+        }
         else RemoveMoney(finalAmount);
 
         if(isCorrect) dailyMoneyDelta += finalAmount;
