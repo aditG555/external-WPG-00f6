@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CuttingBoardIcon : MonoBehaviour, IPointerDownHandler, IDropHandler
 {
@@ -14,7 +15,7 @@ public class CuttingBoardIcon : MonoBehaviour, IPointerDownHandler, IDropHandler
     [SerializeField] GameObject TemulawakOut;
     [SerializeField] GameObject KunyitOut;
     [SerializeField] GameObject SeraiOut;
-
+    Sprite dropedItemSprite;
     public void OnPointerDown(PointerEventData eventData)
     {
         
@@ -26,9 +27,8 @@ public class CuttingBoardIcon : MonoBehaviour, IPointerDownHandler, IDropHandler
             Debug.Log("Ulekan Just Got Dropepd something");
             if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeCut)
             {
-                Debug.Log("ello");
                 DragAndDrop item = eventData.pointerDrag.GetComponent<DragAndDrop>();
-                //if(eventData.pointerDrag.GetComponent<DragAndDrop>().itemType == ItemType.)
+                interaction.UnCutItemSprite = eventData.pointerDrag.GetComponent<Image>().sprite;
                 switch (eventData.pointerDrag.GetComponent<DragAndDrop>().itemType)
                 {
                     case ItemType.Jahe:

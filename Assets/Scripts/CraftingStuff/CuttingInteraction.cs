@@ -6,12 +6,14 @@ using UnityEngine.UI;
 using System.Collections;
 using NUnit;
 using static UnityEditor.Progress;
+using System.Threading;
 
 public class CuttingInteraction : MonoBehaviour
 {
     public Canvas canvas;
     public GameObject collisionCheck;
     public float progress;
+    public Sprite UnCutItemSprite;
     public GameObject ItemOutput;
     public Image Itemcut;
     public Button ItemOut;
@@ -24,9 +26,13 @@ public class CuttingInteraction : MonoBehaviour
     float MaxProgressValue = 5f;
     private void Awake()
     {
-        
+        gameObject.SetActive(false);
         canvasGroup = GetComponent<CanvasGroup>();
         
+    }
+    private void OnEnable()
+    {
+        Itemcut.sprite = UnCutItemSprite;
     }
     private void Start()
     {
@@ -82,6 +88,7 @@ public class CuttingInteraction : MonoBehaviour
     }
     public void OutPut()
     {
+        ItemOut.gameObject.SetActive(false );
         GameObject OUtput = GameObject.Instantiate(ItemOutput, GameObject.Find("HandItem").transform);
         if (GameManager._instance.AddItemInHand(OUtput))
         {
