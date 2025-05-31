@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Ulekan : MonoBehaviour, IPointerDownHandler, IDropHandler
+public class Ulekan : MonoBehaviour, IDropHandler
 {
     [SerializeField] UnityEvent Activate;
     [SerializeField] UlekanInteraction interaction;
@@ -17,9 +17,6 @@ public class Ulekan : MonoBehaviour, IPointerDownHandler, IDropHandler
     [SerializeField] GameObject KunyitOut;
     [SerializeField] GameObject SeraiOut;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-    }
     public void OnDrop(PointerEventData eventData)
     {
         if(eventData.pointerDrag.GetComponent<DragAndDrop>() != null)

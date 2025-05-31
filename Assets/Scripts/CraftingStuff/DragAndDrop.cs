@@ -11,6 +11,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public bool canbeDrag = true;
     public bool canbeUllek = true;
     public bool canbeBoil = true;
+    public bool canbeCut = true;
     public int MaxItemStack = 10;
     public ItemType itemType;
     public Transform ParentAfterDrag;
@@ -42,7 +43,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         //ParentBeforeDrag = ParentAfterDrag;
         if (canbeDrag)
         {
-            ParentBeforeDrag.gameObject.GetComponent<ItemSlot>()?.RemoveItem(this.gameObject);
+            ParentBeforeDrag?.gameObject.GetComponent<ItemSlot>()?.RemoveItem(this.gameObject);
             ParentAfterDrag = null;
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.5f;
