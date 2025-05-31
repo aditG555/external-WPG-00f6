@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Ulekan : MonoBehaviour, IPointerDownHandler, IDropHandler
+public class Ulekan : MonoBehaviour, IDropHandler
 {
     [SerializeField] UnityEvent Activate;
     [SerializeField] UlekanInteraction interaction;
@@ -17,9 +17,6 @@ public class Ulekan : MonoBehaviour, IPointerDownHandler, IDropHandler
     [SerializeField] GameObject KunyitOut;
     [SerializeField] GameObject SeraiOut;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-    }
     public void OnDrop(PointerEventData eventData)
     {
         if(eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
@@ -45,8 +42,9 @@ public class Ulekan : MonoBehaviour, IPointerDownHandler, IDropHandler
                 if (GameManager._instance.isFilled())
                 {
                     Debug.Log("Hand is Not Full!");
-                    eventData.pointerDrag.GetComponent<DragAndDrop>().ShelveFrom?.DencrementCount();
-                    Destroy(eventData.pointerDrag);
+                    //eventData.pointerDrag.GetComponent<DragAndDrop>().ShelveFrom?.DencrementCount();
+                    //Destroy(eventData.pointerDrag);
+                    item.InsertInto(this.gameObject, true);
                     Activate.Invoke();
                 }
                 else

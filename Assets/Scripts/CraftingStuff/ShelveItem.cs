@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class ShelveItme : DragAndDrop
+public class ShelveItme : DragAndDrop,IDropHandler
 {
     [SerializeField] UnityEvent End;
     public GameObject Item;
@@ -27,7 +27,7 @@ public class ShelveItme : DragAndDrop
     private void Start()
     {
         Label = this.gameObject.transform.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        AddCount(10);
+        UpdateCount();
     }
     public override void OnBeginDrag(PointerEventData eventData)
     {
@@ -37,6 +37,7 @@ public class ShelveItme : DragAndDrop
             DraggedItem = Instantiate(Item, canvas.transform, Parrent);
             drag = DraggedItem.GetComponent<DragAndDrop>();
             drag.GetComponent<RectTransform>().position = eventData.position;
+            //drag.ParentBeforeDrag = this.transform;
             drag.Set(this.canvas);
             drag.enabled = true;
             drag.canvasGroup.blocksRaycasts = false;
@@ -59,6 +60,14 @@ public class ShelveItme : DragAndDrop
             UpdateText(Count);
         }
     }
+    public void UpdateCount()
+    {
+        if (!isInfinite)
+        {
+            UpdateText(Count);
+        }
+    }
+
 
     public void MinCount(int val)
     {
@@ -84,6 +93,14 @@ public class ShelveItme : DragAndDrop
             UpdateText(Count);
         }
     }
+    public void OnDrop(PointerEventData eventData)
+    {
+        if(eventData.pointerDrag.GetComponent<DragAndDrop>().itemType == Item.GetComponent<DragAndDrop>().itemType)
+        {
+            IncrementCount();
+            eventData.pointerDrag.GetComponent<DragAndDrop>().InsertInto(this.gameObject, true);
+        }
+    }
     public override void OnDrag(PointerEventData eventData)
     {
         //DraggedItem.rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
@@ -99,4 +116,5 @@ public class ShelveItme : DragAndDrop
     {
         //Debug.Log("PointerDown");
     }
+
 }
