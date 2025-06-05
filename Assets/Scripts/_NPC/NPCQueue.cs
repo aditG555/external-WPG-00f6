@@ -10,6 +10,12 @@ public class NPCQueue : MonoBehaviour
     private int totalJamuServed;
     private int correctJamuServed;
 
+    public struct RefundEntry
+    {
+        public NPCData npcData;
+        public int baseAmount;
+    }
+
     void Awake()
     {
         if (Instance == null)
@@ -52,6 +58,23 @@ public class NPCQueue : MonoBehaviour
         spawnedNPCs.Add(npc);
     }
 
+    private Queue<RefundEntry> refundQueue = new Queue<RefundEntry>();
+
+    public void EnqueueRefund(NPCData data, int baseAmount)
+    {
+        refundQueue.Enqueue(new RefundEntry { npcData = data, baseAmount = baseAmount });
+    }
+
+    public List<RefundEntry> DequeueAllRefunds()
+    {
+        List<RefundEntry> refunds = new List<RefundEntry>();
+        while (refundQueue.Count > 0)
+        {
+            refunds.Add(refundQueue.Dequeue());
+        }
+        return refunds;
+    }    
+
     // Memproses refund untuk NPC yang tidak dilayani dengan benar
     public void ProcessRefunds()
     {
@@ -60,7 +83,7 @@ public class NPCQueue : MonoBehaviour
             if (!npc.wasServedCorrectly && npc != null)
             {
                 int penalty = Mathf.RoundToInt(
-                    EconomyManager.Instance.GetJamuBasePrice(npc.gameObject) * 
+                    EconomyManager.Instance.GetJamuBasePrice(npc.gameObject) *
                     DayCycleManager.Instance.refundPenaltyMultiplier
                 );
                 EconomyManager.Instance.RemoveMoney(penalty);

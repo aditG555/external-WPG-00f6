@@ -6,15 +6,15 @@ public class NPCManager : MonoBehaviour
     public static NPCManager Instance;
 
     [Header("NPC Settings")]
-    [SerializeField] private GameObject[] npcPrefabs;
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] public GameObject[] npcPrefabs;
+    [SerializeField] public Transform[] spawnPoints;
     public NPCData[] possibleNPCData;
-    [SerializeField] private NPCLooksData[] possibleNPCLooks;
+    [SerializeField] public NPCLooksData[] possibleNPCLooks;
 
-    [SerializeField] private Transform canvasTransform; 
+    [SerializeField] public Transform canvasTransform; 
     
     private GameObject currentNPC;
-    private int currentSpawnIndex;
+    public int currentSpawnIndex;
 
     void Awake()
     {
@@ -37,6 +37,7 @@ public class NPCManager : MonoBehaviour
         // Pilih spawn point secara bergantian
         Transform spawnPoint = spawnPoints[currentSpawnIndex];
         currentSpawnIndex = (currentSpawnIndex + 1) % spawnPoints.Length;
+        Debug.Log($"Spawning NPC at {spawnPoint.position} with index {currentSpawnIndex}");
 
         // Instantiate NPC baru
         GameObject npcPrefab = npcPrefabs[Random.Range(0, npcPrefabs.Length)];

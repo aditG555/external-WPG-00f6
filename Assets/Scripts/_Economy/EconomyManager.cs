@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class ItemData
@@ -82,34 +83,39 @@ public class EconomyManager : MonoBehaviour
     public void ProcessJamuTransaction(NPCTrait[] traits, bool isCorrect, int baseValue)
     {
         int finalAmount = baseValue;
-        
-        foreach(NPCTrait trait in traits)
+
+        if (!isCorrect)
         {
-            if(isCorrect)
-            {
-                if(trait == NPCTrait.Generous) finalAmount += 5;
-                if(trait == NPCTrait.Forgetful) finalAmount += 2;
-                Popularity++;
-            }
-            else
-            {
-                if(trait == NPCTrait.Perfectionist) finalAmount *= 2;
-                if(trait == NPCTrait.Grumpy) finalAmount += 10;
-                Popularity--;
-            }
+            Popularity--;
         }
-
-        Debug.Log($"Transaksi: {(isCorrect ? "+" : "-")}{finalAmount}");
-
-        if (isCorrect)
+        else
         {
-            AddMoney(finalAmount);
+            foreach (NPCTrait trait in traits)
+            {
+                switch (trait)
+                {
+                    case NPCTrait.Perfectionist:
+                        finalAmount *= 2;
+                        break;
+                    case NPCTrait.Generous:
+                        finalAmount += 5;
+                        break;
+                    case NPCTrait.Forgetful:
+                        finalAmount += 2;
+                        break;
+                }
+            }
             Popularity++;
         }
-        else RemoveMoney(finalAmount);
 
-        if(isCorrect) dailyMoneyDelta += finalAmount;
-        else dailyMoneyDelta -= finalAmount;
+        AddMoney(finalAmount); 
+
+        Debug.Log($"Transaksi: {finalAmount}");
+
+        // else AddMoney(baseValue);
+
+        dailyMoneyDelta += finalAmount;
+        
         
         UpdateMoneyUI(); 
     }
