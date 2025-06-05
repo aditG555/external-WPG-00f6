@@ -12,21 +12,30 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     int ItemCount = 0;
     public bool IsFilled()
     {
-        if(Child.Count != 0)
+        try
         {
-            if (Child.Count < Child[0].GetComponent<DragAndDrop>().MaxItemStack)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            if (transform.GetChild(0) != null) return true;
         }
-        else
+        catch
         {
             return false;
         }
+        return false;
+        //if(Child.Count != 0)
+        //{
+        //    if (Child.Count < Child[0].GetComponent<DragAndDrop>().MaxItemStack)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
+        //else
+        //{
+        //    return false;
+        //}
         
     }
     public void RemoveItem(GameObject item)
