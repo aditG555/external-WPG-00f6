@@ -23,6 +23,9 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
     [SerializeField] GameObject TemulawakOut;
     [SerializeField] GameObject KunyitOut;
     [SerializeField] GameObject SeraiOut;
+    [SerializeField] GameObject BerasKencurOut;
+    [SerializeField] GameObject TehChamomilleOut;
+    [SerializeField] GameObject TehRossellaOut;
     [Space(10)]
     //[Header("Item Input List")]
     //[Space(10)]
@@ -75,6 +78,82 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                     if (Recepy.Contains(ItemType.Air))
                     {
                         Debug.Log("HasWater!");
+                        if (Recepy.Contains(ItemType.Beras))
+                        {
+                            if (Recepy.Contains(ItemType.Jahe))
+                            {
+                                if (Recepy.Contains(ItemType.DaunPandan))
+                                {
+                                    if (Recepy.Contains(ItemType.GulaAren))
+                                    {
+                                        if (Recepy.Contains(ItemType.GulaPasir))
+                                        {
+                                            if (Recepy.Contains(ItemType.Garam))
+                                            {
+                                                OutPut = BerasKencurOut;
+                                            }
+                                            else
+                                            {
+                                                OutPut = null;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        //Beras Kencur Logic
+                        if (Recepy.Contains(ItemType.Temulawak))
+                        {
+                            if (Recepy.Contains(ItemType.Kunyit))
+                            {
+                                if (Recepy.Contains(ItemType.Kencur))
+                                {
+                                    if (Recepy.Contains(ItemType.Serai))
+                                    {
+                                        if (Recepy.Contains(ItemType.GulaAren))
+                                        {
+                                            if (Recepy.Contains(ItemType.Garam))
+                                            {
+                                                OutPut = TemulawakOut;
+                                            }
+                                            else
+                                            {
+                                                OutPut = null;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        //Teh Rossella Logic
+                        if (Recepy.Contains(ItemType.KelopakRosela))
+                        {
+                            if (Recepy.Contains(ItemType.GulaPasir))
+                            {
+                                OutPut = TehRossellaOut;
+                                RebusImg.color = Color.green;
+                            }
+                            else
+                            {
+                                OutPut = null;
+                            }
+                        }
+                        //Teh Rossella Logic
+                        if (Recepy.Contains(ItemType.KelopakChamomile))
+                        {
+                            if (Recepy.Contains(ItemType.GulaPasir))
+                            {
+                                if (Recepy.Contains(ItemType.JerukNipis))
+                                {
+                                    OutPut = TehChamomilleOut;
+                                    RebusImg.color = Color.white;
+                                }
+                                else
+                                {
+                                    OutPut = null;
+                                }
+                            }
+                        }
                         if (Recepy.Contains(ItemType.BijiAdas))
                         {
                             Debug.Log("HasBijiAdas!");
@@ -85,7 +164,12 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                 RebusImg.color = Color.red;
 
                             }
+                            else
+                            {
+                                OutPut = null;
+                            }
                         }
+
                     }
                     if (!GameManager._instance.isFilled())
                     {
