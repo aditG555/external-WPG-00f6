@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1187823176, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
+    - target: {fileID: -6099948183206166063, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6099948183206166063, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5325775517516645158, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: itemType
       value: 1
@@ -27,14 +35,14 @@ PrefabInstance:
     - target: {fileID: 6444448940609187938, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: eb7495d3ec2e48e4a86684e7d7af9caf, type: 3}
+      objectReference: {fileID: 639699575, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: 6444448940609187938, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Color.b
-      value: 0.82075465
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6444448940609187938, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Color.g
-      value: 0.9427256
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6444448940609187938, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Color.r
@@ -42,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7051355600357708686, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Name
-      value: JaheItem
+      value: JaheItemDirty
       objectReference: {fileID: 0}
     - target: {fileID: 7336731469279566119, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Pivot.x
@@ -139,5 +147,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7051355600357708686, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5722932400709436374}
   m_SourcePrefab: {fileID: 100100000, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+--- !u!1 &8359546870532224447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051355600357708686, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+  m_PrefabInstance: {fileID: 1574114832268224049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5722932400709436374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359546870532224447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a5c37d832ed10419effda039ad28f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemSprite: {fileID: 639699575, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
+  ItemType: 0
+  JamuComponent: {fileID: 0}
+  CanBeClean: 1
+  CanBeCut: 0
+  CanBeBoil: 0
