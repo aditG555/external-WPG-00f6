@@ -15,9 +15,6 @@ public class DailySummaryUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ratingText;
     [SerializeField] private Button nextDayButton;
 
-    [Header("Rating Elements")]
-    [SerializeField] private GameObject[] starIcons;
-
     [Header("UI Shop Elements")]
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private Button shopButton;
