@@ -10,7 +10,8 @@ public class NPC : MonoBehaviour
     public Sprite Body;
     public Sprite Head;
     public NPCLooksData SpritesData;
-    public bool wasServedCorrectly = false; // Menandakan apakah jamu yang diberikan benar
+    public bool wasServedCorrectly = false;// Menandakan apakah jamu yang diberikan benar
+    public bool isRefundNPC = false;// Menandakan apakah jamu yang diberikan sudah di-refund
 
     Animator animator;
 
@@ -21,11 +22,16 @@ public class NPC : MonoBehaviour
         Body = SpritesData.Body;
         Head = SpritesData.Head;
         
-        // Tampilkan dialog masalah selama 5 detik
-        DialogManager.Instance.ShowProblemDialog(
-            currentProblem, 
-            5f
-        );
+        
+        
+        if (!isRefundNPC)
+        {
+            // Tampilkan dialog masalah selama 5 detik
+            DialogManager.Instance.ShowProblemDialog(
+                currentProblem,
+                5f
+            );
+        }
     }
     public void InitializeNPC(NPCData Data,NPCLooksData Looks)
     {
@@ -33,6 +39,8 @@ public class NPC : MonoBehaviour
         Body = Looks.Body;
         Head = Looks.Head;
 
+
+        
         // Tampilkan dialog masalah selama 5 detik
         DialogManager.Instance.ShowProblemDialog(
             currentProblem,
@@ -75,6 +83,11 @@ public class NPC : MonoBehaviour
             isCorrect,
             baseValue
         );
+
+        if (!isCorrect)
+        {
+            NPCQueue.Instance.EnqueueRefund(npcData, baseValue);
+        }
         
         // Hancurkan NPC dan spawn baru
         StartCoroutine(DestroyAndRespawn());
@@ -86,7 +99,7 @@ public class NPC : MonoBehaviour
         return jamu != null && jamu.type == desiredJamu;
     }
 
-    IEnumerator DestroyAndRespawn()
+    public IEnumerator DestroyAndRespawn()
 {
         animator.Play("NPCExitAnim");
         yield return new WaitForSeconds(1f);

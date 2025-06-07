@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro; // Pastikan Anda sudah mengimpor TextMeshPro
-using UnityEngine.UI; // Untuk menggunakan UI Button
+using System.Collections; // Untuk menggunakan UI Button
 
 public class DayCycleManager : MonoBehaviour
 {
@@ -58,13 +58,19 @@ public class DayCycleManager : MonoBehaviour
 
     public void StartNewDay()
     {
+        // StartCoroutine(ProcessRefundNPC());
+
         NPCQueue.Instance.ResetDailyStats();
         NPCQueue.Instance.InitializeQueue(npcPerDay);
         dayTimer = dayDuration;
         currentDay++;
         UpdateDayUI();
         NPCManager.Instance.SpawnNewNPC();
+        Debug.Log($"Starting Day {currentDay} with {npcPerDay} NPCs.");
+        
     }
+
+   
 
     public void EndDay()
     {
@@ -108,18 +114,53 @@ public class DayCycleManager : MonoBehaviour
         Debug.Log($"Refund scheduled for {npc.name}. Penalty: {penalty}");
     }
 
-    private void ProcessRefunds()
-    {
-        foreach (NPC npc in npcsToRefund)
+    private IEnumerator ProcessRefundNPC()
+{
+    List<NPCQueue.RefundEntry> refunds = NPCQueue.Instance.DequeueAllRefunds();
+    Debug.Log($"Jumlah refund yang akan diproses: {refunds.Count}");
+
+    foreach (var refund in refunds)
         {
-            EconomyManager.Instance.RemoveMoney(
-                Mathf.RoundToInt(
-                    EconomyManager.Instance.GetJamuBasePrice(npc.gameObject) * refundPenaltyMultiplier
-                )
+            // Access public fields from NPCManager
+            GameObject npcPrefab = NPCManager.Instance.npcPrefabs[
+                Random.Range(0, NPCManager.Instance.npcPrefabs.Length)
+            ];
+
+            Transform spawnPoint = NPCManager.Instance.spawnPoints[
+                NPCManager.Instance.currentSpawnIndex
+            ];
+
+            NPCManager.Instance.currentSpawnIndex =
+                (NPCManager.Instance.currentSpawnIndex + 1) % NPCManager.Instance.spawnPoints.Length;
+
+            GameObject refundNPC = Instantiate(
+                npcPrefab,
+                spawnPoint.position,
+                Quaternion.identity,
+                NPCManager.Instance.canvasTransform
             );
-            Debug.Log($"Refund processed for {npc.name}");
+
+            NPC npcComponent = refundNPC.GetComponent<NPC>();
+            npcComponent.isRefundNPC = true;
+            npcComponent.npcData = refund.npcData;
+            npcComponent.SpritesData = NPCManager.Instance.possibleNPCLooks[
+                Random.Range(0, NPCManager.Instance.possibleNPCLooks.Length)
+            ];
+            npcComponent.InitializeNPC();
+
+            DialogManager.Instance.ShowProblemDialog(
+                npcComponent.currentProblem,
+                5f
+            );
+            EconomyManager.Instance.RemoveMoney(refund.baseAmount);
+            Debug.Log($"Refund NPC {npcComponent.name} spawned with penalty: {refund.baseAmount}");
+
+            // npcComponent.StartCoroutine(npcComponent.DestroyAndRespawn());
+            npcsToRefund.Remove(npcComponent);
+            NPCQueue.Instance.RegisterSpawnedNPC(npcComponent);
+
+            yield return new WaitWhile(() => refundNPC != null);
         }
-        npcsToRefund.Clear();
     }
 
     private void UpdateDayUI()

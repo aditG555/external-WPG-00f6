@@ -44,6 +44,16 @@ public class DialogManager : MonoBehaviour
         currentDialogRoutine = StartCoroutine(DialogRoutine(resultText, duration));
     }
 
+    public void RefundDialog(string refundText, float duration)
+    {
+        // Hentikan dialog sebelumnya jika ada
+        if (currentDialogRoutine != null)
+        {
+            StopCoroutine(currentDialogRoutine);
+        }
+        currentDialogRoutine = StartCoroutine(DialogRoutine(refundText, duration));
+    }
+
     IEnumerator DialogRoutine(string text, float duration)
     {
         dialogPanel.SetActive(true);
