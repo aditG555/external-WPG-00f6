@@ -43,7 +43,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         //ParentBeforeDrag = ParentAfterDrag;
         if (canbeDrag)
         {
-            ParentBeforeDrag.gameObject.GetComponent<ItemSlot>()?.RemoveItem(this.gameObject);
+            ParentBeforeDrag?.gameObject.GetComponent<ItemSlot>()?.RemoveItem(this.gameObject);
             ParentAfterDrag = null;
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.5f;
