@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -6099948183206166063, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1187823176, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
+      objectReference: {fileID: 639699575, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: -6099948183206166063, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 639699575, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
-  ItemType: 0
+  ItemType: 1
   JamuComponent: {fileID: 0}
   CanBeClean: 1
   CanBeCut: 0

@@ -9,17 +9,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeCut
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: ItemType
-      value: 2
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeBoil
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeClean
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: ItemSprite
       value: 
-      objectReference: {fileID: -1394692237, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
+      objectReference: {fileID: 581164717, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: 2198914190220759086, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1394692237, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
+      objectReference: {fileID: 581164717, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: 5768534816682084568, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -102,31 +114,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055036042246996593, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Name
-      value: GulaPasir
+      value: KencurDirty
       objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1394692237, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
+      objectReference: {fileID: 581164717, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.b
-      value: 0.14218175
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.g
-      value: 0.32863647
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.r
-      value: 0.49685526
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: canbeCut
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: itemType
-      value: 2
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeUllek
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
