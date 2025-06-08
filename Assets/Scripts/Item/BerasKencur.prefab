@@ -109,8 +109,24 @@ PrefabInstance:
       value: 0.49685526
       objectReference: {fileID: 0}
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeCut
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: itemType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeBoil
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeUllek
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}

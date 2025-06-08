@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 1187823176, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
-  ItemType: 0
+  ItemType: 1
   JamuComponent: {fileID: 0}
   CanBeClean: 0
   CanBeCut: 0

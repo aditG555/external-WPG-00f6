@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: ItemType
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeBoil
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeClean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: ItemSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 02f7f77549f41724c8aaa580b1b53864, type: 3}
     - target: {fileID: 2198914190220759086, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -115,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeCut
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: itemType
