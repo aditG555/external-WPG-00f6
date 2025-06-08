@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public UIDocument UIDocument;

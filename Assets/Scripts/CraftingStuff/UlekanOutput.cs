@@ -2,17 +2,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class UlekanOutput : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] UnityEvent End;
     public GameObject Item;
+    public Image Image;
     public GameObject DraggedItem;
     public GameObject Parrent;
     public void SetGameObject(GameObject output)
     {
         Item = output;
+        Image = transform.GetComponent<Image>();
     }
     
 

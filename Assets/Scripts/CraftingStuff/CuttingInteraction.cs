@@ -1,12 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using System.Collections;
-using NUnit;
-using static UnityEditor.Progress;
-using System.Threading;
 
 public class CuttingInteraction : MonoBehaviour
 {

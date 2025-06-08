@@ -41,6 +41,7 @@ public class UlekanInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragH
         {
             OnEndDrag(eventData);
             UlOut.SetGameObject(ItemOutput);
+            UlOut.Image.sprite = ItemOutput.GetComponent<Image>().sprite;
             Berak.Invoke();
             return;
         }
