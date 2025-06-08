@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static UnityEditor.Rendering.CameraUI;
 
 public class CuttingInteraction : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class CuttingInteraction : MonoBehaviour
         else
         {
             Dispense.Invoke();
+            ItemOut.transform.GetComponent<Image>().sprite = ItemOutput.GetComponent<Image>().sprite;
         }
         
     }
@@ -83,9 +85,7 @@ public class CuttingInteraction : MonoBehaviour
     }
     public void OutPut()
     {
-        ItemOut.gameObject.SetActive(false );
         GameObject OUtput = GameObject.Instantiate(ItemOutput, GameObject.Find("HandItem").transform);
-        ItemOut.GetComponent<Image>().sprite = OUtput.GetComponent<Image>().sprite;
         if (GameManager._instance.AddItemInHand(OUtput))
         {
             ResetObject();

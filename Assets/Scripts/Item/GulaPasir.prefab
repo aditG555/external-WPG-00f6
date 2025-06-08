@@ -13,6 +13,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeBoil
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: ItemSprite
       value: 
       objectReference: {fileID: -1394692237, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
@@ -104,21 +108,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: GulaPasir
       objectReference: {fileID: 0}
+    - target: {fileID: 7735254263141884045, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: ItemType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735254263141884045, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: ItemSprite
+      value: 
+      objectReference: {fileID: -1394692237, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1394692237, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.b
-      value: 0.14218175
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.g
-      value: 0.32863647
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Color.r
-      value: 0.49685526
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: canbeCut
@@ -128,7 +140,8 @@ PrefabInstance:
       propertyPath: itemType
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

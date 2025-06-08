@@ -143,12 +143,15 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                             {
                                 if (Recepy.Contains(ItemType.JerukNipis))
                                 {
-                                    OutPut = TehChamomilleOut;
-                                    RebusImg.color = Color.white;
-                                }
-                                else
-                                {
-                                    OutPut = null;
+                                    if (Recepy.Contains(ItemType.JerukNipis))
+                                    {
+                                        OutPut = TehChamomilleOut;
+                                        RebusImg.color = Color.white;
+                                    }
+                                    else
+                                    {
+                                        OutPut = null;
+                                    }
                                 }
                             }
                         }

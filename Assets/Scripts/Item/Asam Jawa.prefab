@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asam Jawa
       objectReference: {fileID: 0}
+    - target: {fileID: 7735254263141884045, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: ItemType
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -148,7 +152,8 @@ PrefabInstance:
       propertyPath: canbeUllek
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
