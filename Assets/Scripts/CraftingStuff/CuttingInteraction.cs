@@ -20,7 +20,8 @@ public class CuttingInteraction : MonoBehaviour
     float MaxProgressValue = 5f;
     private void Awake()
     {
-        gameObject.SetActive(false);
+        Debug.Log("Cutting Board Activated");
+        //gameObject.SetActive(false);
         canvasGroup = GetComponent<CanvasGroup>();
         
     }
@@ -84,6 +85,7 @@ public class CuttingInteraction : MonoBehaviour
     {
         ItemOut.gameObject.SetActive(false );
         GameObject OUtput = GameObject.Instantiate(ItemOutput, GameObject.Find("HandItem").transform);
+        ItemOut.GetComponent<Image>().sprite = OUtput.GetComponent<Image>().sprite;
         if (GameManager._instance.AddItemInHand(OUtput))
         {
             ResetObject();

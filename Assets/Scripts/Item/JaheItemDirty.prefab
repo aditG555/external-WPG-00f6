@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2412353280786271886, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+      propertyPath: CanBeBoil
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2412353280786271886, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
+      propertyPath: CanBeClean
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5325775517516645158, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: itemType
       value: 1
@@ -147,31 +155,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7051355600357708686, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5722932400709436374}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
---- !u!1 &8359546870532224447 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7051355600357708686, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
-  m_PrefabInstance: {fileID: 1574114832268224049}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5722932400709436374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8359546870532224447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a5c37d832ed10419effda039ad28f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemSprite: {fileID: 639699575, guid: 9af97bf5d6706fe40891f2247bf8fa85, type: 3}
-  ItemType: 1
-  JamuComponent: {fileID: 0}
-  CanBeClean: 1
-  CanBeCut: 0
-  CanBeBoil: 0

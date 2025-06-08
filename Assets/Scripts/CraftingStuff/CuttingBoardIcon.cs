@@ -22,9 +22,10 @@ public class CuttingBoardIcon : MonoBehaviour, IPointerDownHandler, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("CuttingBoard Just Got Dropepd something");
         if (eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
         {
-            Debug.Log("Ulekan Just Got Dropepd something");
+            Debug.Log("CuttingBoard Just Got Dropepd something");
             if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeCut)
             {
                 DragAndDrop item = eventData.pointerDrag.GetComponent<DragAndDrop>();

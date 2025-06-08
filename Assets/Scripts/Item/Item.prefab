@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6444448940609187938}
   - component: {fileID: 6369631555935536766}
   - component: {fileID: -6099948183206166063}
+  - component: {fileID: -2412353280786271886}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -60,12 +61,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4049abd6fdcf1a44a86c8018635df67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 0}
   rectTransform: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  canvas: {fileID: 0}
+  canbeDrag: 1
+  canbeUllek: 1
+  canbeBoil: 1
+  canbeCut: 1
+  MaxItemStack: 10
+  itemType: 0
   ParentAfterDrag: {fileID: 0}
   ParentBeforeDrag: {fileID: 0}
-  canvas: {fileID: 0}
-  Root: {fileID: 0}
+  ShelveFrom: {fileID: 0}
 --- !u!114 &6444448940609187938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +170,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2412353280786271886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051355600357708686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a5c37d832ed10419effda039ad28f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemSprite: {fileID: 0}
+  ItemType: 0
+  JamuComponent: {fileID: 0}
+  CanBeClean: 0
+  CanBeCut: 0
+  CanBeBoil: 1

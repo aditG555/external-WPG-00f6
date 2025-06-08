@@ -62,9 +62,9 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
+        if (eventData.pointerDrag.GetComponent<Item>() != null)
         {
-            if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeBoil)
+            if (eventData.pointerDrag.GetComponent<Item>().CanBeBoil)
             {
                 if(Recepy.Count <= 11)
                 {

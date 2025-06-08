@@ -116,6 +116,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: KencurDirty
       objectReference: {fileID: 0}
+    - target: {fileID: 7735254263141884045, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeBoil
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735254263141884045, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: CanBeClean
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
       value: 

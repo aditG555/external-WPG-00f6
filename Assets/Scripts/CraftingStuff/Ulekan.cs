@@ -1,7 +1,7 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Ulekan : MonoBehaviour, IDropHandler
 {
@@ -13,16 +13,20 @@ public class Ulekan : MonoBehaviour, IDropHandler
     [SerializeField] GameObject BroWhatOut;
     [SerializeField] GameObject JaheOut;
     [SerializeField] GameObject KencurOut;
+    [SerializeField] GameObject DaunpandanOut;
     [SerializeField] GameObject TemulawakOut;
     [SerializeField] GameObject KunyitOut;
     [SerializeField] GameObject SeraiOut;
+    [SerializeField] GameObject RossellaOut;
+    public bool Ulek;
+    public bool Cuci;
 
     public void OnDrop(PointerEventData eventData)
     {
         if(eventData.pointerDrag.GetComponent<DragAndDrop>() != null)
         {
             Debug.Log("Ulekan Just Got Dropepd something");
-            if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeUllek)
+            if (eventData.pointerDrag.GetComponent<DragAndDrop>().canbeUllek == Ulek || eventData.pointerDrag.GetComponent<Item>().CanBeClean == Cuci)
             {
                 Debug.Log("ello");
                 DragAndDrop item = eventData.pointerDrag.GetComponent<DragAndDrop>();
@@ -35,10 +39,29 @@ public class Ulekan : MonoBehaviour, IDropHandler
                     case ItemType.Jahe:
                         interaction.ItemOutput = JaheOut;
                         break;
+                    case ItemType.DaunPandan:
+                        interaction.ItemOutput = DaunpandanOut;
+                        break;
+                    case ItemType.Kencur:
+                        interaction.ItemOutput = KencurOut;
+                        break;
+                    case ItemType.Temulawak:
+                        interaction.ItemOutput = TemulawakOut;
+                        break;
+                    case ItemType.Kunyit:
+                        interaction.ItemOutput = KunyitOut;
+                        break;
+                    case ItemType.Serai:
+                        interaction.ItemOutput = SeraiOut;
+                        break;
+                    case ItemType.KelopakRosela:
+                        interaction.ItemOutput = RossellaOut;
+                        break;
                     default:
                         interaction.ItemOutput = BroWhatOut;
                         break;
                 }
+                interaction.transform.GetComponent<Image>().sprite = item.transform.GetComponent <Image>().sprite;
                 if (GameManager._instance.isFilled())
                 {
                     Debug.Log("Hand is Not Full!");
