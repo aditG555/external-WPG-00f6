@@ -73,6 +73,7 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                     item.ParentAfterDrag = ItemsGroup.transform;
                     item.canbeDrag = false;
                     Recepy.Add(item.itemType);
+                    //Beras Kencur
                     if (Recepy.Contains(ItemType.Air))
                     {
                         Debug.Log("HasWater!");
@@ -86,20 +87,23 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                     {
                                         if (Recepy.Contains(ItemType.GulaPasir))
                                         {
-                                            if (Recepy.Contains(ItemType.Garam))
+                                            if (Recepy.Contains(ItemType.Kencur))
                                             {
-                                                OutPut = BerasKencurOut;
-                                            }
-                                            else
-                                            {
-                                                OutPut = null;
+                                                if (Recepy.Contains(ItemType.Garam))
+                                                {
+                                                    OutPut = BerasKencurOut;
+                                                }
+                                                else
+                                                {
+                                                    OutPut = null;
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         }
-                        //Beras Kencur Logic
+                        //Temulawak Logic
                         if (Recepy.Contains(ItemType.Temulawak))
                         {
                             if (Recepy.Contains(ItemType.Kunyit))
@@ -123,6 +127,26 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                 }
                             }
                         }
+                        //Kunyit Logic
+                        if (Recepy.Contains(ItemType.Kunyit))
+                        {
+                            if (Recepy.Contains(ItemType.Serai))
+                            {
+                                if (Recepy.Contains(ItemType.AsamJawa))
+                                {
+                                    if (Recepy.Contains(ItemType.JerukNipis))
+                                    {
+                                        if (Recepy.Contains(ItemType.GulaAren))
+                                        {
+                                            OutPut = TemulawakOut;
+                                        }
+                                        {
+                                            OutPut = null;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         //Teh Rossella Logic
                         if (Recepy.Contains(ItemType.KelopakRosela))
                         {
@@ -136,25 +160,23 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                 OutPut = null;
                             }
                         }
-                        //Teh Rossella Logic
+                        //Teh Chamomile Logic
                         if (Recepy.Contains(ItemType.KelopakChamomile))
                         {
                             if (Recepy.Contains(ItemType.GulaPasir))
                             {
                                 if (Recepy.Contains(ItemType.JerukNipis))
                                 {
-                                    if (Recepy.Contains(ItemType.JerukNipis))
-                                    {
-                                        OutPut = TehChamomilleOut;
-                                        RebusImg.color = Color.white;
-                                    }
-                                    else
-                                    {
-                                        OutPut = null;
-                                    }
+                                    OutPut = TehChamomilleOut;
+                                    RebusImg.color = Color.white;
+                                }
+                                else
+                                {
+                                    OutPut = null;
                                 }
                             }
                         }
+                        //Teh Adas
                         if (Recepy.Contains(ItemType.BijiAdas))
                         {
                             Debug.Log("HasBijiAdas!");

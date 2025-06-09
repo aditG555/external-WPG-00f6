@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeUllek
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

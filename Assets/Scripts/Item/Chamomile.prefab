@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: CanBeBoil
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: CanBeClean

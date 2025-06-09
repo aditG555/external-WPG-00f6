@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static UnityEditor.Rendering.CameraUI;
 
 public class CuttingInteraction : MonoBehaviour
 {
@@ -15,6 +14,8 @@ public class CuttingInteraction : MonoBehaviour
     public float SliderOfsets;
     [SerializeField] Slider slider;
     [SerializeField] UnityEvent Dispense;
+    [SerializeField] AudioClip[] AudioClips;
+    [SerializeField] AudioSource AudioSource;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
     Vector2 startposition;
@@ -47,6 +48,9 @@ public class CuttingInteraction : MonoBehaviour
             slider.interactable = true;
             if (slider.value == 1)
             {
+                int Rin = Random.Range(3, 20) % 2;
+                AudioSource.clip = AudioClips[Rin];
+                AudioSource.Play();
                 if (EYe)
                 {
                     

@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro; // Pastikan Anda sudah mengimpor TextMeshPro
-using System.Collections; // Untuk menggunakan UI Button
+using System.Collections;
+using UnityEngine.Events; // Untuk menggunakan UI Button
 
 public class DayCycleManager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class DayCycleManager : MonoBehaviour
     
     [Header("Rating System")]
     [SerializeField] private RatingSystem ratingSystem;
+
+    [Header("Audio Event")]
+    [SerializeField] UnityEvent OnEndDay;
 
 
     void Awake()
@@ -74,6 +78,7 @@ public class DayCycleManager : MonoBehaviour
 
     public void EndDay()
     {
+        OnEndDay.Invoke();
         NPCQueue.Instance.ProcessRefunds();
         NPCManager.Instance.ClearCurrentNPC();
         ShowDailySummary();

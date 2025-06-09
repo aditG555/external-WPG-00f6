@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325775517516645158, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: canbeBoil
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6444448940609187938, guid: baa07d8dd1509e94da82a88fef565868, type: 3}
       propertyPath: m_Sprite
@@ -155,4 +155,4 @@ MonoBehaviour:
   JamuComponent: {fileID: 0}
   CanBeClean: 0
   CanBeCut: 0
-  CanBeBoil: 0
+  CanBeBoil: 1

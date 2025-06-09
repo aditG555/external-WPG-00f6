@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: CanBeBoil
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 830795676097376832, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: CanBeClean
@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6055036042246996593, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Name
-      value: Daun Pandan 1
+      value: Daun PandanDirty
       objectReference: {fileID: 0}
     - target: {fileID: 7832874205115752861, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: m_Sprite
@@ -135,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: itemType
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
+      propertyPath: canbeBoil
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8949858768579252953, guid: abe1dd5cf1f58234eae9c0730f0ea58e, type: 3}
       propertyPath: canbeUllek

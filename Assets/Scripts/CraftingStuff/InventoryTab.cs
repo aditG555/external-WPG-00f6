@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class InventoryTab : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] AudioSource InventorySound;
+    [SerializeField] AudioClip[] AudioClip;
     Animator animator;
     public bool TabsOpen = true;
     private void Awake()
@@ -24,6 +25,10 @@ public class InventoryTab : MonoBehaviour
     }
     public void Toogle()
     {
+        int Rin = Random.Range(3, 20)%2;
+        InventorySound.clip = AudioClip[Rin];
+        Debug.Log(InventorySound.clip.name + " was Played");
+        InventorySound.Play();
         if (TabsOpen)
         {
             animator.Play("TabDownAnimations");
