@@ -155,7 +155,7 @@ public class DayCycleManager : MonoBehaviour
 
             DialogManager.Instance.ShowProblemDialog(
                 npcComponent.currentProblem,
-                5f
+                15f
             );
             EconomyManager.Instance.RemoveMoney(refund.baseAmount);
             Debug.Log($"Refund NPC {npcComponent.name} spawned with penalty: {refund.baseAmount}");
