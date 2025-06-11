@@ -1122,7 +1122,7 @@ PrefabInstance:
       objectReference: {fileID: 3472948336893405698}
     - target: {fileID: 4483113481895691785, guid: a1080651a51fcb34897cc144f123721c, type: 3}
       propertyPath: possibleNPCData.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4483113481895691785, guid: a1080651a51fcb34897cc144f123721c, type: 3}
       propertyPath: possibleNPCLooks.Array.size
@@ -1147,7 +1147,7 @@ PrefabInstance:
     - target: {fileID: 4483113481895691785, guid: a1080651a51fcb34897cc144f123721c, type: 3}
       propertyPath: 'possibleNPCData.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: c8eb5392f5d63c34d9d56d87eca85d2c, type: 2}
+      objectReference: {fileID: 11400000, guid: ffa8d00897d0b0a4a8435765115d9d98, type: 2}
     - target: {fileID: 4483113481895691785, guid: a1080651a51fcb34897cc144f123721c, type: 3}
       propertyPath: 'possibleNPCData.Array.data[5]'
       value: 
