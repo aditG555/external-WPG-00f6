@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 199.981, y: 199.981}
+  m_SizeDelta: {x: 304.393, y: 304.393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7189086851776873425
 CanvasRenderer:
@@ -187,6 +187,7 @@ MonoBehaviour:
   Head: {fileID: 0}
   SpritesData: {fileID: 0}
   wasServedCorrectly: 0
+  isRefundNPC: 0
 --- !u!61 &5747227557902070409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290,7 +291,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 199.981, y: 199.981}
+  m_SizeDelta: {x: 304.393, y: 304.393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2968466662469678244
 CanvasRenderer:
