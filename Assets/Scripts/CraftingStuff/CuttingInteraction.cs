@@ -46,20 +46,21 @@ public class CuttingInteraction : MonoBehaviour
         if(progress < MaxProgressValue)
         {
             slider.interactable = true;
-            if (slider.value == 1)
+            if (slider.value >= 0.9f)
             {
                 int Rin = Random.Range(3, 20) % 2;
                 AudioSource.clip = AudioClips[Rin];
                 AudioSource.Play();
                 if (EYe)
                 {
-                    
+
                     progress++;
                     EYe = false;
+                    // slider.value = 0f;
+                    slider.interactable = false;
+                    slider.GetComponent<RectTransform>().anchoredPosition = slider.GetComponent<RectTransform>().anchoredPosition + new Vector2(1 * SliderOfsets, 0);
                 }
-                slider.value = 0f;
-                slider.interactable = false;
-                slider.GetComponent<RectTransform>().anchoredPosition = slider.GetComponent<RectTransform>().anchoredPosition + new Vector2(1 * SliderOfsets, 0);
+                
             }
             else if(slider.value >= 0.01f)
             {

@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3734152150112122911, guid: 27e312e76d2c3a54a9fd7135f8b4241a, type: 3}
       propertyPath: SliderOfsets
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4369761251142780976, guid: 27e312e76d2c3a54a9fd7135f8b4241a, type: 3}
       propertyPath: m_Pivot.x
@@ -596,9 +596,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375291173407185448, guid: 27e312e76d2c3a54a9fd7135f8b4241a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899140962960557655, guid: 27e312e76d2c3a54a9fd7135f8b4241a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6611638649397496452, guid: 27e312e76d2c3a54a9fd7135f8b4241a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
