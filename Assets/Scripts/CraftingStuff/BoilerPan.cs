@@ -92,6 +92,7 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                                 if (Recepy.Contains(ItemType.Garam))
                                                 {
                                                     OutPut = BerasKencurOut;
+                                                    RebusImg.color = Color.red;
                                                 }
                                                 else
                                                 {
@@ -117,6 +118,7 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                             if (Recepy.Contains(ItemType.Garam))
                                             {
                                                 OutPut = TemulawakOut;
+                                                RebusImg.color = Color.red;
                                             }
                                             else
                                             {
@@ -138,7 +140,8 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                                     {
                                         if (Recepy.Contains(ItemType.GulaAren))
                                         {
-                                            OutPut = TemulawakOut;
+                                            OutPut = KunyitOut;
+                                            RebusImg.color = Color.red;
                                         }
                                         {
                                             OutPut = null;
@@ -152,12 +155,15 @@ public class BoilerPan : MonoBehaviour, IPointerDownHandler, IDropHandler
                         {
                             if (Recepy.Contains(ItemType.GulaPasir))
                             {
-                                OutPut = TehRossellaOut;
-                                RebusImg.color = Color.green;
-                            }
-                            else
-                            {
-                                OutPut = null;
+                                if (Recepy.Contains(ItemType.JerukNipis))
+                                {
+                                    OutPut = TehRossellaOut;
+                                    RebusImg.color = Color.red;
+                                }
+                                else
+                                {
+                                    OutPut = null;
+                                }
                             }
                         }
                         //Teh Chamomile Logic
