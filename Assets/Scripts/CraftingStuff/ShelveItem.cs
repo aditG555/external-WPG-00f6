@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ShelveItme : DragAndDrop,IDropHandler
 {
@@ -15,6 +16,7 @@ public class ShelveItme : DragAndDrop,IDropHandler
     public int Count;
     public bool isInfinite = false;
     TMPro.TextMeshProUGUI Label;
+    public TextMeshProUGUI TextLabel;
     DragAndDrop drag;
     private void Awake()
     {
@@ -27,6 +29,8 @@ public class ShelveItme : DragAndDrop,IDropHandler
     private void Start()
     {
         Label = this.gameObject.transform.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        TextLabel.text = this.name;
+        
         UpdateCount();
     }
     public override void OnBeginDrag(PointerEventData eventData)

@@ -1562,10 +1562,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 354784506840812382, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: KencurOut
-      value: 
-      objectReference: {fileID: 4223774727016747079, guid: 10586505cec014d4197e2348a0da22e3, type: 3}
-    - target: {fileID: 354784506840812382, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
       propertyPath: interaction
       value: 
       objectReference: {fileID: 1016501814}
