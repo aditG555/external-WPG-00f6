@@ -286,7 +286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23a5e4b4cc43ed847a15dd1409d2823a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f595f5a31b47b514fbf5608065c81269, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1521,8 +1521,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.46
-  m_fontSizeBase: 25.46
+  m_fontSize: 21.35
+  m_fontSizeBase: 21.35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -154.45056, y: -36.225235, z: -150.23161, w: 0}
+  m_margin: {x: -35.448128, y: -16.1525, z: -32.66295, w: 9.319433}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23a5e4b4cc43ed847a15dd1409d2823a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f595f5a31b47b514fbf5608065c81269, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2228,7 +2228,7 @@ MonoBehaviour:
         m_CallState: 2
   interaction: {fileID: 0}
   JaheOut: {fileID: 8359546870532224447, guid: bd4baafaec21eb44fb53d806421f2ae7, type: 3}
-  KencurOut: {fileID: 4223774727016747079, guid: a10a7d5152c435e4ca55764f45638160, type: 3}
+  KencurOut: {fileID: 4223774727016747079, guid: 10586505cec014d4197e2348a0da22e3, type: 3}
   TemulawakOut: {fileID: 4223774727016747079, guid: 03258fdb26c3dff4d8bc84b67edb334a, type: 3}
   KunyitOut: {fileID: 4223774727016747079, guid: 0decf1f51e119de469a806d65d151213, type: 3}
   SeraiOut: {fileID: 4223774727016747079, guid: a10a7d5152c435e4ca55764f45638160, type: 3}
@@ -2464,7 +2464,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 372, y: -261}
-  m_SizeDelta: {x: 259.828, y: 42.884}
+  m_SizeDelta: {x: 243.8824, y: 96.1563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3073669686707307007
 CanvasRenderer:
@@ -2494,7 +2494,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 473911499, guid: 708b978a0b99c7542af3bbc3ba3bc67f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2595,6 +2595,10 @@ PrefabInstance:
     - target: {fileID: 6123857572372998209, guid: adb175c9ab2f6b54f9e3ec4ad15f6f7b, type: 3}
       propertyPath: m_Name
       value: CharacterRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123857572372998209, guid: adb175c9ab2f6b54f9e3ec4ad15f6f7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

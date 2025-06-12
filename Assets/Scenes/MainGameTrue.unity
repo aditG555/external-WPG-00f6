@@ -2282,14 +2282,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackGround
       objectReference: {fileID: 0}
-    - target: {fileID: 1664587900131760520, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 243.8824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664587900131760520, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 96.1563
-      objectReference: {fileID: 0}
     - target: {fileID: 3006288030010748822, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2322,14 +2314,6 @@ PrefabInstance:
       propertyPath: Activate.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 641744913}
-    - target: {fileID: 5781755440985727078, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 473911499, guid: 708b978a0b99c7542af3bbc3ba3bc67f, type: 3}
-    - target: {fileID: 6034369175907852208, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6595704453085300178, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
       propertyPath: interaction
       value: 
@@ -2366,30 +2350,6 @@ PrefabInstance:
       propertyPath: Activate.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 641744913}
-    - target: {fileID: 8898516157956132986, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_fontSize
-      value: 21.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898516157956132986, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_margin.w
-      value: 9.319433
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898516157956132986, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_margin.x
-      value: -35.448128
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898516157956132986, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_margin.y
-      value: -16.1525
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898516157956132986, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_margin.z
-      value: -32.66295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898516157956132986, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 21.35
-      objectReference: {fileID: 0}
     - target: {fileID: 9211675785319663000, guid: 92bb5adadcad332449e98789fb44eaca, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
