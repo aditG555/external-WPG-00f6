@@ -29,7 +29,7 @@ public class NPC : MonoBehaviour
             // Tampilkan dialog masalah selama 5 detik
             DialogManager.Instance.ShowProblemDialog(
                 currentProblem,
-                15f
+                1800f
             );
         }
     }
@@ -44,7 +44,7 @@ public class NPC : MonoBehaviour
         // Tampilkan dialog masalah selama 5 detik
         DialogManager.Instance.ShowProblemDialog(
             currentProblem,
-            15f
+            1800f
         );
     }
     private void Start()
